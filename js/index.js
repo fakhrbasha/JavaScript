@@ -49,3 +49,52 @@ console.log(age ,typeof age); // 29 'number'
 console.log(isFalse ,typeof isFalse); // true 'boolean'
 console.log(y ,typeof y); // null 'object'
 console.log(x ,typeof x); // undefined 'undefined'
+
+
+//  arithmetic operator
+// + - * / % ++ --
+
+var x = 10;
+console.log(x*10);
+// 2 power 3
+console.log(2 ** 3);
+// mod 4 % 2 = 0 // 3 %  2 = 1
+console.log(7%5); //2
+
+var x = 10;
+x+=20; // example x = x + 20; etc...
+console.log(x); // 30
+
+// comparison operator
+// == != > < >= <=
+
+var x = 10;
+var y = 20;
+console.log(x == y); // if x = y or not return true or false abstract equality
+var z = "10";
+console.log(x == z); // == not important dt -> true convert y to number and compare
+// === strict equality
+console.log(x === z); // false must be same dt and value
+
+
+// console.log(x != y); // if x = y or not return true or false
+// console.log(x > y); // if x > y return true or false
+// console.log(x < y); // if x < y return true or false
+// console.log(x >= y); // if x >= y return true or false
+// console.log(x <= y); // if x <= y return true or false
+
+// logical operator
+// && || !
+var x = 10;
+var y = 20;
+console.log(!(x==y));
+console.log("Ali" && "ahmed"); // return last value 
+console.log(true && 22); // 22
+
+// undefined return false
+// null return false
+// " " return false
+// NaN return false 
+
+// anything else return true
+console.log(undefined && 'ahmed'); // undefined
