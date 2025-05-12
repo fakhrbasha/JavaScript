@@ -112,4 +112,78 @@ console.log(true && 22); // 22
 console.log(undefined && 'ahmed'); // undefined
 
 // anything else return true
+
+```
+
+Conditional  statement 
+- if
+- switch
+```
+    if(condition){
+        // code
+    }else{
+        //code
+    }
+
+---> EX :
+
+    var age = 20;
+    if(age>16){
+        console.log("Enter");
+    }else{
+        console.log("NO");
+}
+
+
+---> if else if
+var age = 20;
+if(age>16){
+    console.log("Enter" ,age);
+}else{
+    console.log("NO");
+}
+if(age >= 20 && age < 18){
+    console.log("+18");
+}else if(age >=20 && age <=16){
+    console.log('+16');
+}else{
+    console.log('NO');
+}
+```
+- ternary operator
+```
+    var age = 20;
+    var result = age > 16 ? "Enter" : "NO";
+    console.log(result);
+```
+- nested if 
+```
+var lang = 'php';
+if(lang=='php'){
+    if(age==30){
+        console.log("AC");
+    }else{
+        console.log("NO");
+    }
+    
+}else{
+    console.log('NO');
+}
+```
+
+- Switch Case
+```
+var skill = 'JS';
+
+switch(skill){
+    case 'JS':
+        console.log('Good');
+        break;
+    case 'php':
+        console.log('boor');
+        break;
+    default:
+        console.log('NO');
+        break;
+}
 ```
