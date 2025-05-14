@@ -116,3 +116,55 @@ console.log(res);
 ```
 - if delete return statement res will be undefined
 - if need the value in another action use return type
+
+**_Example_**
+```
+function calcPrice(price , profit , tax , ads){
+    var price1 = price + profit;
+    var price2 = price1 * tax;
+    var price3 = price2 + ads ;
+    return price3;
+}
+var finalPrice = calcPrice(100,10,1.5,200);
+function getAvg(x,y){
+    var sum = x+y;
+    var avg = sum/2;
+    console.log(avg);
+}
+// getAvg(finalPrice, 100); or 
+//         must return value
+getAvg(calcPrice(100,10,1.5,200) , 20);
+```
+-  if you don't use return statement in function -> undefined
+
+**_Example_**
+```
+function parent(){
+    function child1(){
+        return 'child1';
+    }
+    function child2(){
+        return 'child2';
+    }
+    var x = child1();
+    console.log(x); // log child1
+    return 'fakhr';
+}
+parent(); // child1
+
+var fa5r = parent();
+console.log(fa5r);
+
+--- ---
+function parent1(){
+    function child1(){
+        return 'child1!';
+    }
+    return child1(); // return return child1
+}
+var x = parent1();
+console.log(x); // child1   
+```
+
+4. Hoisting
+

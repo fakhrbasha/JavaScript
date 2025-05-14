@@ -120,3 +120,14 @@ parent(); // child1
 
 var fa5r = parent();
 console.log(fa5r);
+
+function parent1(){
+    function child1(){
+        return 'child1!';
+    }
+    return child1(); // return return child1
+}
+var x = parent1();
+console.log(x); // child1   
+
+// Hoisting
