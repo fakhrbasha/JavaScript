@@ -35,3 +35,37 @@ function average( x ,  y ){ // why not type var -> because we use x and y  param
 average(8 , 2);
 average(20,30);
 average(100,200);
+average('ahmed','mohamed') ; // NaN 
+average(100,200,300); ; // x -> 100 , y -> 200 , 300 -> goodbye
+average('ahmed',200); //NaN
+
+// function scope
+
+// function getSum( x , y){
+//     var summ = x + y;
+// }
+// getSum(10,20);
+// console.log(summ); // error summ not defined you need to defined in global
+
+// var y = 100; // global scope
+// function welcome(){
+//     var xx = 10; // local scope
+// }
+// console.log(y);
+// welcome();
+// console.log(xx); // error x not defined
+// if (true){
+//     var z = 100; // global scope
+// }
+// console.log(z); // 100
+
+// self invoked function -> anonymous function -> function without name call itself
+
+(function(){
+    console.log('self invoked function');
+    var x = 100; // local scope
+})();
+var x = 100; // global scope
+console.log('self invoked function');
+// important thing in self invoked function -> scope is not global scope
+// it is local scope | function scope |

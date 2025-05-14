@@ -44,6 +44,43 @@ function average( x ,  y ){ // why not type var -> because we use x and y  param
 average(8 , 2); // call , invoke
 average(20,30); // call , invoke
 average(100,200); // call , invoke
+average('ahmed','mohamed') ; // NaN
+average(100,200,300); ; // x -> 100 , y -> 200 , 300 -> goodbye
+average('ahmed',200); //NaN
+
 ```
+
+2. Function Scope
+
+```
+function getSum( x , y){
+    var summ = x + y;
+}
+getSum(10,20);
+console.log(summ); // error summ not defined you need to defined in global
+```
+-----
+```
+var y = 100; // global scope
+function welcome(){
+    var xx = 10; // local scope
+}
+console.log(y);
+welcome();
+console.log(xx); // error x not defined
+```
+---- 
+```
+if (true){
+    var z = 100; // global scope
+}
+console.log(z); // 100
+and we can use z in any place in our code 
+loop same thing
+```
+
+__*any variable global scope ! defined in function*__
+
+3. self invoked function
 
 
