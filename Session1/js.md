@@ -176,14 +176,74 @@ if(lang=='php'){
 var skill = 'JS';
 
 switch(skill){
-    case 'JS':
+    case 'JS': // if
         console.log('Good');
         break;
-    case 'php':
+    case 'php': // else if
         console.log('boor');
+        break;
+    default:  // else
+        console.log('NO');
+        break;
+}
+```
+
+- nested switch
+```
+var lang = 'js';
+var age = 20;
+switch(lang){
+    case 'php':
+        console.log("AC");
+        break;
+    case 'js':
+        console.log("AAC");
+        switch(age){
+            case 20:
+                console.log("20");
+                break;
+            default:
+                console.log('NO');
+                break;
+        }
         break;
     default:
         console.log('NO');
         break;
 }
+```
+
+***Loop***
+- for loop
+
+```
+for(var i = 0 ; i < 10 ; i++){
+    console.log('fakhr top');
+}
+for(var i = 0 ; i < 10 ; i+=3){
+    if(i%2==0){
+        console.log(i);
+    }
+}
+var x = 1;
+for(var i = 0 ; i < x ; i++){
+    console.log("Welcome");
+}
+```
+- while loop
+```
+var i =0;
+white(i<10)
+{
+    console.log('Welcome');
+    i++;
+}
+```
+- do while loop
+```
+do {
+  console.log('Welcome');
+i++;
+
+} while (i < 10);
 ```

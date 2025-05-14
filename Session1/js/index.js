@@ -100,43 +100,92 @@
 // console.log(undefined && 'ahmed'); // undefined
 
 //IF 
-var age = 20;
-// if(age>16){
-//     console.log("Enter" ,age);
+// var age = 20;
+// // if(age>16){
+// //     console.log("Enter" ,age);
+// // }else{
+// //     console.log("NO");
+// // }
+// if(age >= 20 && age < 18){
+//     console.log("+18");
+// }else if(age >=20 ||  age <=16){
+//     console.log('+16');
 // }else{
-//     console.log("NO");
+//     console.log('NO');
 // }
-if(age >= 20 && age < 18){
-    console.log("+18");
-}else if(age >=20 ||  age <=16){
-    console.log('+16');
-}else{
-    console.log('NO');
-}
 
-//  nested if
-var lang = 'php';
-if(lang=='php'){
-    if(age==30){
-        console.log("AC");
-    }else{
-        console.log("NO age");
-    }
+// //  nested if
+// var lang = 'php';
+// if(lang=='php'){
+//     if(age==30){
+//         console.log("AC");
+//     }else{
+//         console.log("NO age");
+//     }
     
-}else{
-    console.log('NO');
-}
+// }else{
+//     console.log('NO');
+// }
 
-// switch
-var skill = 'JS';
-switch(skill){
-    case 'JS':
-        console.log('Good');
-        break;
-    case 'php':
-        console.log('boor');
-        break;
-    default:
-        console.log('NO');
-        break;
-}
+// // switch
+// var skill = 'JS';
+// switch(skill){
+//     case 'JS':
+//         console.log('Good');
+//         break;
+//     case 'php':
+//         console.log('boor');
+//         break;
+//     default:
+//         console.log('NO');
+//         break;
+// }
+// var lang = 'js';
+// var age = 20;
+// switch(lang){
+//     case 'php':
+//         console.log("AC");
+//         break;
+//     case 'js':
+//         console.log("AAC");
+//         switch(age){
+//             case 20:
+//                 console.log("20");
+//                 break;
+//             default:
+//                 console.log('NO');
+//                 break;
+//         }
+//         break;
+//     default:
+//         console.log('NO');
+//         break;
+// }
+
+// //  LOOP
+// // for loop
+
+// for(var i = 0 ; i < 10 ; i++){
+//     console.log('fakhr top');
+// }
+// for(var i = 0 ; i < 10 ; i+=3){
+//     if(i%2==0){
+//         console.log(i);
+//     }
+// }
+// var x = 1;
+// for(var i = 0 ; i < x ; i++){
+//     console.log("Welcome");
+// }
+// var i =0;
+// white(i<10)
+// {
+//     console.log('Welcome');
+//     i++;
+// }
+// do {
+//   console.log('Welcome');
+// } while (i < 10);
+
+let num = prompt();
+console.log(num);
