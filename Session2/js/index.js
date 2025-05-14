@@ -102,4 +102,21 @@ function getAvg(x,y){
     console.log(avg);
 }
 // getAvg(finalPrice, 100); or 
+//         must return value
 getAvg(calcPrice(100,10,1.5,200) , 20);
+// if you don't use return statement in function -> undefined
+function parent(){
+    function child1(){
+        return 'child1';
+    }
+    function child2(){
+        return 'child2';
+    }
+    var x = child1();
+    console.log(x); // log child1
+    return 'fakhr';
+}
+parent(); // child1
+
+var fa5r = parent();
+console.log(fa5r);
