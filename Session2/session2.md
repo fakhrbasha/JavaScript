@@ -82,5 +82,37 @@ loop same thing
 __*any variable global scope ! defined in function*__
 
 3. self invoked function
+    -  self invoked function -> anonymous function -> function without name call itself
 
+```
+(function(){
+    console.log('self invoked function');
+    var x = 100; // local scope
+})();
+var x = 100; // global scope
+console.log('self invoked function');
 
+```
+- **_important thing in self invoked function -> scope is not global scope_**
+- **_it is local scope | function scope |_**
+
+4. return statement
+```
+- return statement -> return a value
+
+function getAvg(x,y){
+    var sum = x + y;
+    var avg = sum / 2;
+    console.log(avg);
+    return avg;
+
+  // unreachable code
+  var goodbye = 'goodbye'; // not return
+    return goodbye;
+}
+var res = getAvg(10,20);
+res++;
+console.log(res);
+```
+- if delete return statement res will be undefined
+- if need the value in another action use return type
