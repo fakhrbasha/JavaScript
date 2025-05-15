@@ -166,5 +166,5 @@ var x = parent1();
 console.log(x); // child1   
 ```
 
-4. Hoisting
+4. Hoisting    ! important for interview
 
