@@ -139,7 +139,7 @@
 // var x = parent1();
 // console.log(x); // child1   
 
-// Hoisting
+// Hoisting   tricks js
 //  in general 
 // function test (){
 //     console.log('hello');
@@ -174,61 +174,118 @@
 //  type write function
 
 // declaration function
-function getAvg(x,y){
-    var sum = x + y;
-    var avg = sum / 2;
-    return avg;
+// function getAvg(x,y){
+//     var sum = x + y;
+//     var avg = sum / 2;
+//     return avg;
+// }
+// // expression function
+// var getAvg = function(x,y){
+//     var sum = x + y;
+//     var avg = sum / 2;
+//     return avg;
+// }
+
+// //  -> any function start word function -> declaration
+// // another this -> expression function
+// //  the difference is -> expression function is not hoisting 
+// // declaration function is hoisting take in top 
+// // expression function have hoisting in declaration but body still in place
+// // ex 
+// // code this
+// console.log('hello ');
+// console.log('hello ');
+// console.log('hello ');
+// console.log('hello ');
+// console.log('hello ');
+// function getAvg(x,y){
+//     var sum = x + y;
+//     var avg = sum / 2;
+//     return avg;
+// }
+
+// // expression function
+// var getAvg = function(x,y){
+//     var sum = x + y;
+//     var avg = sum / 2;
+//     return avg;
+// }
+
+// // run this 
+// function getAvg(x,y){
+//     var sum = x + y;
+//     var avg = sum / 2;
+//     return avg;
+// }
+// var getAvg ;
+
+// console.log('hello ');
+// console.log('hello ');
+// console.log('hello ');
+// console.log('hello ');
+// console.log('hello ');
+
+
+// // expression function
+// getAvg = function(x,y){
+//     var sum = x + y;
+//     var avg = sum / 2;
+//     return avg;
+// }
+
+
+// getAvg(10,20 );
+// function getAvg(x,y){
+//     var sum = x + y;
+//     var avg = sum / 2;
+//     console.log(avg);
+// }
+// // output 15 
+// // any program lang other this code has error
+// // but hosting change this to -> 
+// function getAvg(x,y){
+//     var sum = x + y;
+//     var avg = sum / 2;
+//     console.log(avg);
+// }
+// getAvg(10,20 );
+
+// can run this in expression function? / NO
+// getAvg(10,20); // getAvg is not defined
+// var getAvg = function(x,y){
+//     var sum = x + y;
+//     var avg = sum / 2;
+//     console.log(avg);
+// }
+// code
+function foo(){
+    console.log('welcome to foo');
+    function getAvg(x,y){
+        var sum = x + y;
+        var avg = sum / 2;
+        console.log(avg);
+    }
+
+    var getAvg = function(x,y){
+        var sum = x + y;
+        var avg = sum / 2;
+        console.log(avg);
+    }
 }
-// expression function
-var getAvg = function(x,y){
-    var sum = x + y;
-    var avg = sum / 2;
-    return avg;
-}
+// interpreter hoisting 
+function foo(){
+    var getAvg;
+    function getAvg(x,y){
+        var sum = x + y;
+        var avg = sum / 2;
+        console.log(avg);
+    }
+    console.log('welcome to foo');
+    
 
-//  -> any function start word function -> declaration
-// another this -> expression function
-//  the difference is -> expression function is not hoisting 
-// declaration function is hoisting take in top 
-// expression function have hoisting in declaration but body still in place
-// ex 
-// code this
-console.log('hello ');
-console.log('hello ');
-console.log('hello ');
-console.log('hello ');
-console.log('hello ');
-function getAvg(x,y){
-    var sum = x + y;
-    var avg = sum / 2;
-    return avg;
-}
-
-// expression function
-var getAvg = function(x,y){
-    var sum = x + y;
-    var avg = sum / 2;
-    return avg;
-}
-
-// run this 
-function getAvg(x,y){
-    var sum = x + y;
-    var avg = sum / 2;
-    return avg;
-}
-var getAvg ;
-
-console.log('hello ');
-console.log('hello ');
-console.log('hello ');
-console.log('hello ');
-console.log('hello ');
-
-
-// expression function
-getAvg = function(x,y){
-    var sum = x + y;
-    var avg = sum / 2;
-    return avg;
+    getAvg = function(x,y){
+        var sum = x + y;
+        var avg = sum / 2;
+        console.log(avg);
+    }
 }

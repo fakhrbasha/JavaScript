@@ -166,7 +166,7 @@ var x = parent1();
 console.log(x); // child1   
 ```
 
-4. Hoisting    ! important for interview
+4. ***Hoisting***    ! important for interview
 -  hoisting will push declaration to top of the scope
 - from this
 ```
@@ -211,3 +211,166 @@ x = 10 ;
 - because this output undefined any other language program get error
 - but in javascript it just print undefined
 
+**_Type Function_**
+- declaration function ->any function start with keyword function
+- expression function -> any function without keyword function
+
+
+- declaration function
+```
+function getAvg(x,y){
+    var sum = x + y;
+    var avg = sum / 2;
+    return avg;
+}
+```
+- expression function
+
+```
+var getAvg = function(x,y){
+    var sum = x + y;
+    var avg = sum / 2;
+    return avg;
+}
+```
+- the difference is -> expression function is not hoisting 
+- declaration function is hoisting take in top 
+- expression function have hoisting in declaration but body still in place
+
+**EX**
+
+- code this
+
+```
+console.log('hello ');
+console.log('hello ');
+console.log('hello ');
+console.log('hello ');
+console.log('hello ');
+function getAvg(x,y){
+    var sum = x + y;
+    var avg = sum / 2;
+    return avg;
+}
+
+// expression function
+var getAvg = function(x,y){
+    var sum = x + y;
+    var avg = sum / 2;
+    return avg;
+}
+```
+- run this
+```
+function getAvg(x,y){
+    var sum = x + y;
+    var avg = sum / 2;
+    return avg;
+}
+var getAvg ;
+
+console.log('hello ');
+console.log('hello ');
+console.log('hello ');
+console.log('hello ');
+console.log('hello ');
+
+
+// expression function
+getAvg = function(x,y){
+    var sum = x + y;
+    var avg = sum / 2;
+    return avg;
+}
+```
+
+**_EX_**
+```
+getAvg(10,20 );
+function getAvg(x,y){
+    var sum = x + y;
+    var avg = sum / 2;
+    console.log(avg);
+}
+```
+- output 15 
+- any program lang other this code has error
+- but hosting change this to -> 
+```
+function getAvg(x,y){
+    var sum = x + y;
+    var avg = sum / 2;
+    console.log(avg);
+}
+getAvg(10,20 );
+```
+- output 15
+- hosting -> move function to top of file
+
+- can run this in expression function? / NO
+**_EX_**
+```
+getAvg(10,20);
+var getAvg = function(x,y){
+    var sum = x + y;
+    var avg = sum / 2;
+    console.log(avg);
+}
+```
+- getAvg is not a function interpreter show this function as variable 
+
+```
+var getAvg ;
+getAvg(10,20);
+getAvg = function(x,y){
+    var sum = x + y;
+    var avg = sum / 2;
+    console.log(avg);
+}
+```
+
+**EX**
+- code 
+```
+function foo(){
+    console.log('welcome to foo');
+    function getAvg(x,y){
+        var sum = x + y;
+        var avg = sum / 2;
+        console.log(avg);
+    }
+
+    var getAvg = function(x,y){
+        var sum = x + y;
+        var avg = sum / 2;
+        console.log(avg);
+    }
+}
+```
+- interpreter hoisting 
+```
+function foo(){
+    var getAvg;
+    
+    function getAvg(x,y){
+        var sum = x + y;
+        var avg = sum / 2;
+        console.log(avg);
+    }
+
+    console.log('welcome to foo');
+    
+
+    getAvg = function(x,y){
+        var sum = x + y;
+        var avg = sum / 2;
+        console.log(avg);
+    }
+}
+```
+- review
+- Same routine
+- Don't go out scope
+
+
+***Interpreter*** <p>It's a process that happens before code execution, where the code is read line by line and directly translated for execution without being compiled into an executable file beforehand. </p>
