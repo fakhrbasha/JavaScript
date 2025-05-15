@@ -140,4 +140,95 @@
 // console.log(x); // child1   
 
 // Hoisting
+//  in general 
+// function test (){
+//     console.log('hello');
+//     console.log('welcome');
+//     console.log('hello');
 
+//     var x = 10 ;
+//     //  var x ->  declare 
+//     // x = 10 -> assignment
+//     //  hoisting will push declaration to top of the scope
+// }
+// function test (){
+//     var x ;
+//     console.log('hello');
+//     console.log('welcome');
+//     console.log('hello');
+
+//     x = 10 ;
+// }
+// ex
+// console.log(x);
+// var x= 10;
+// output undefined
+// why 
+// interpreter take the declaration and push it to top of 
+// var x ;
+// console.log(x);
+// x = 10 ;
+// because this output undefined any other language program get error
+// but in javascript it just print undefined
+
+//  type write function
+
+// declaration function
+function getAvg(x,y){
+    var sum = x + y;
+    var avg = sum / 2;
+    return avg;
+}
+// expression function
+var getAvg = function(x,y){
+    var sum = x + y;
+    var avg = sum / 2;
+    return avg;
+}
+
+//  -> any function start word function -> declaration
+// another this -> expression function
+//  the difference is -> expression function is not hoisting 
+// declaration function is hoisting take in top 
+// expression function have hoisting in declaration but body still in place
+// ex 
+// code this
+console.log('hello ');
+console.log('hello ');
+console.log('hello ');
+console.log('hello ');
+console.log('hello ');
+function getAvg(x,y){
+    var sum = x + y;
+    var avg = sum / 2;
+    return avg;
+}
+
+// expression function
+var getAvg = function(x,y){
+    var sum = x + y;
+    var avg = sum / 2;
+    return avg;
+}
+
+// run this 
+function getAvg(x,y){
+    var sum = x + y;
+    var avg = sum / 2;
+    return avg;
+}
+var getAvg ;
+
+console.log('hello ');
+console.log('hello ');
+console.log('hello ');
+console.log('hello ');
+console.log('hello ');
+
+
+// expression function
+getAvg = function(x,y){
+    var sum = x + y;
+    var avg = sum / 2;
+    return avg;
+}

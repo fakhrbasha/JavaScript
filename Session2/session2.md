@@ -167,4 +167,47 @@ console.log(x); // child1
 ```
 
 4. Hoisting    ! important for interview
+-  hoisting will push declaration to top of the scope
+- from this
+```
+
+function test (){
+    console.log('hello');
+    console.log('welcome');
+    console.log('hello');
+
+    var x = 10 ;
+    //  var x ->  declare 
+    // x = 10 -> assignment
+    //  hoisting will push declaration to top of the scope
+}
+```
+- to this
+```
+function test (){
+    var x ;
+    console.log('hello');
+    console.log('welcome');
+    console.log('hello');
+
+    x = 10 ;
+}
+```
+**_EX_**
+- type this 
+```
+console.log(x); // undefined
+var x = 10 ;
+```
+- hoisting will push declaration to top of the scope 
+- interpreter take the declaration and push it to top of scope
+- run this
+```
+var x ;
+console.log(x);
+x = 10 ;
+```
+- this is interpreter make it 
+- because this output undefined any other language program get error
+- but in javascript it just print undefined
 
