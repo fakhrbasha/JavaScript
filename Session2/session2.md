@@ -166,7 +166,8 @@ var x = parent1();
 console.log(x); // child1   
 ```
 
-4. ***Hoisting***    ! important for interview
+***Hoisting***   
+! important for interview
 -  hoisting will push declaration to top of the scope
 - from this
 ```
@@ -374,3 +375,6 @@ function foo(){
 
 
 ***Interpreter*** <p>It's a process that happens before code execution, where the code is read line by line and directly translated for execution without being compiled into an executable file beforehand. </p>
+
+
+<h2>Object</h2>

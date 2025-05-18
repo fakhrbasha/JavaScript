@@ -289,3 +289,5 @@ function foo(){
         console.log(avg);
     }
 }
+
+//  Object
