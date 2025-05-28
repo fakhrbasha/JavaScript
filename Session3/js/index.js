@@ -454,9 +454,24 @@ friends.splice(1,0,"Rof");
 console.log(friends);
 
 // slice  Returns a copy of a section of an array.
-var friends = ['ahmed' , 'ali' , 'amr' , 'fakhr'];
+var friends = ['ahmed' ,"fakhr", 'ali' , 'amr' , 'fakhr'];
 
 var after = friends.slice(1,2); // ali
 // var after = friends.slice(2); 2 to end
 // var after = friends.slice(undefined,0); undefined = 0 to 5
 console.log(after); // ali
+
+// include -> search
+
+friends.includes("ali"); // true
+friends.includes("fakhr"); // false
+
+console.log(friends.includes("ali",2)); // false from 2 to end
+
+// indexOf -> search return index of first value
+console.log(friends.indexOf("fakhr")); // 3
+console.log(friends.lastIndexOf("fakhr")); // last index
+// tostring 
+
+var xx =friends.toString();
+console.log(xx); //ahmed,ali,amr,fakhr
