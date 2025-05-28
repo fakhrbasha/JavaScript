@@ -344,21 +344,21 @@
 // var obj = {}; 
 // console.log(typeof obj); // object
 
-// var obj = {
-//     // property
-//     // key      value
-//     fullname :"ahmed ",
-//     gender : 'male' ,
-//     age : 22 ,
-//     salary : 20,
-// }
-// console.log(obj);
-// console.log(obj.age);
-// // another way to access property
-// // console.log(objname['key']); // to access property with variable
-// console.log(obj['salary']);
+var obj = {
+    // property
+    // key      value
+    fullname :"ahmed ",
+    gender : 'male' ,
+    age : 22 ,
+    salary : 20,
+}
+console.log(obj);
+console.log(obj.age);
+// another way to access property
+// console.log(objname['key']); // to access property with variable
+console.log(obj['salary']);
 
-//  obj nested
+// //  obj nested
 // var obj = {
 //     // property
 //     // key      value
@@ -374,28 +374,28 @@
 // }
 // console.log(obj);
 // console.log(obj.objchild.name);
-//  objchild property not object
+// //  objchild property not object
 
 
 // property function
 
-// var obj = {
-//     // property
-//     // key      value
-//     fullname :"ahmed ",
-//     gender : 'male' ,
-//     age : 22 ,
-//     salary : 20,
-//     objchild : {
-//         name:'fakhrayan',
-//         age : 22,
-//         gender : 'female'
-//     },
-//     eat:function(meal){
-//         console.log('eat ' , meal);
-//     },
-// }
-// obj.eat('pasta');
+var obj = {
+    // property
+    // key      value
+    fullname :"ahmed ",
+    gender : 'male' ,
+    age : 22 ,
+    salary : 20,
+    objchild : {
+        name:'fakhrayan',
+        age : 22,
+        gender : 'female'
+    },
+    eat:function(meal){
+        console.log('eat ' , meal);
+    },
+}
+obj.eat('pasta');
 
 
 // array
