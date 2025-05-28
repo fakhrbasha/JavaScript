@@ -438,3 +438,25 @@ console.log(friends);
 // shift -> pop in first 
 friends.shift(); // ahmed ali amr 
 console.log(friends);
+
+// splice -> remove and return deleted element
+// splice (start , delete count )
+// splice add 
+// splice (start , delete count , add item 1 , add item 2 , add item 3 , add item 4 )
+
+
+var friends = ['ahmed' , 'ali' , 'amr' , 'fakhr'];
+var deleted = friends.splice(1,2,"fakhrbasha","mohamed salah");
+console.log(friends);
+console.log(deleted);
+// if i need to add but not delete
+friends.splice(1,0,"Rof");
+console.log(friends);
+
+// slice  Returns a copy of a section of an array.
+var friends = ['ahmed' , 'ali' , 'amr' , 'fakhr'];
+
+var after = friends.slice(1,2); // ali
+// var after = friends.slice(2); 2 to end
+// var after = friends.slice(undefined,0); undefined = 0 to 5
+console.log(after); // ali
