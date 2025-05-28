@@ -475,3 +475,16 @@ console.log(friends.lastIndexOf("fakhr")); // last index
 
 var xx =friends.toString();
 console.log(xx); //ahmed,ali,amr,fakhr
+
+
+var friendss = ['fakhr', 'fakhr' , 'ahmed' ,'ali' , 'fakhr'];
+var foundfakhr = [];
+var count = 0;
+for(var i = 0 ; i < friendss.length ; i++){
+    if(friendss[i] === 'fakhr'){
+        foundfakhr.push(i);
+        count++;
+    }
+}
+console.log(foundfakhr);
+console.log(count);
