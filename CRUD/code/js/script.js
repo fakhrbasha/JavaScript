@@ -75,7 +75,6 @@ function displayProduct(){
     }
     
     document.getElementById('rowBody').innerHTML = cartonna;
-    localStorage.setItem('product' , JSON.stringify(productList));
 
 }
 

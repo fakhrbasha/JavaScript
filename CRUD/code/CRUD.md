@@ -136,3 +136,23 @@ LocalStorage.setItem('products', JSON.stringify(productsList));
 ```js
 JSON.parse(localStorage.getItem('products'))
 ```
+
+
+- must in header make condition to check if local storage is empty or not 
+```js
+// new user
+if(localStorage.getItem('products') == null){
+    productsList = [];
+}
+// user has a data 
+else{
+    // must convert string to array of object
+    productsList = JSON.parse(localStorage.getItem('products'));
+}
+```
+- add setItem in createProduct function and updateProduct function and deleteProduct function
+```js
+
+    localStorage.setItem('product' , JSON.stringify(productList));
+
+```
