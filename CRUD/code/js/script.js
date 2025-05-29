@@ -8,8 +8,18 @@ var productPrice = document.getElementById('productPrice');
 var productCategory = document.getElementById('productCategory');
 var productDesc = document.getElementById('productDesc');
 var productImg = document.getElementById('productImage');
-var productList= [];
+var productList ;
 
+
+// zbon gded
+if(localStorage.getItem('product')== null){
+    productList = [];
+}else{
+    // zbon adeem eleh data
+    productList = JSON.parse(localStorage.getItem('product'));
+    displayProduct();
+
+}
 
 var currentIndex ;
 
@@ -32,6 +42,7 @@ function createProduct(){
     displayProduct();
     resetForm();
     console.log(productList);
+    localStorage.setItem('product' , JSON.stringify(productList));
 
 }
 // reset form
@@ -62,7 +73,10 @@ function displayProduct(){
            </div>
         `
     }
+    
     document.getElementById('rowBody').innerHTML = cartonna;
+    localStorage.setItem('product' , JSON.stringify(productList));
+
 }
 
 
@@ -71,6 +85,8 @@ function displayProduct(){
 function deleteProduct(productIndex){
     productList.splice(productIndex, 1); 
     displayProduct();
+    localStorage.setItem('product' , JSON.stringify(productList));
+
 
 }
 
@@ -87,6 +103,8 @@ function updateProduct(index){
     productCategory.value = productList[index].pCategory;
 
     document.getElementById('addBtn').innerHTML = 'Update Product';
+    localStorage.setItem('product' , JSON.stringify(productList));
+
 
 }
 
