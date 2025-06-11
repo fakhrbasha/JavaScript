@@ -45,6 +45,7 @@ function createProduct(){
     localStorage.setItem('product' , JSON.stringify(productList));
 
 }
+
 // reset form
 function resetForm(){
     productName.value = '';
@@ -78,15 +79,24 @@ function displayProduct(){
 
 }
 
-
+function validateProductName(){
+    var regex = /^[A-Z][a-z]{3,}$/;
+    var ico = document.getElementById('test');
+    var icoFalse = document.getElementById('false');
+    if(regex.test(productName.value)){
+        ico.innerHTML = '<i class="fa-solid fa-check"></i>';
+        icoFalse.innerHTML = '';
+    }else{
+        icoFalse.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+        ico.innerHTML = '';
+    }
+}
 // delete product
 
 function deleteProduct(productIndex){
     productList.splice(productIndex, 1); 
     displayProduct();
     localStorage.setItem('product' , JSON.stringify(productList));
-
-
 }
 
 
@@ -114,3 +124,13 @@ function updateProduct(index){
 // var x = localStorage.getItem('key')
 // localStorage.removeItem('key')
 // localStorage.clear()
+
+
+// var regex = /web[a-z0-9#]{3}web/
+
+// var str = "webaaaweb";
+// if(regex.test(str)==true){
+//     console.log('match');
+// }else{
+//     console.log('not match');
+// }
