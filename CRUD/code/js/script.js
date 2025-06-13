@@ -134,3 +134,26 @@ function updateProduct(index){
 // }else{
 //     console.log('not match');
 // }
+
+
+
+
+
+
+
+
+
+// string method 
+
+var myStr = 'Hello iam ahmed mohamed and my nickname is fakhr because iam fakhr';
+// var x = myStr.charAt(2);
+// var x = myStr.at(2);
+// var x = myStr[0];
+// var x = myStr.slice(start,end);
+// var x = myStr.slice(5,15);
+// var x = myStr.substring(5,15);
+// var x = myStr.toLowerCase();
+// var x = myStr.toUpperCase();
+// var x = myStr.concat(' i love coding');
+var x = myStr+' i love coding';
+console.log(x);
