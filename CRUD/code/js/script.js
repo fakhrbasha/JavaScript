@@ -155,5 +155,8 @@ var myStr = 'Hello iam ahmed mohamed and my nickname is fakhr because iam fakhr'
 // var x = myStr.toLowerCase();
 // var x = myStr.toUpperCase();
 // var x = myStr.concat(' i love coding');
-var x = myStr+' i love coding';
+// var x = myStr+' i love coding';
+// var x = myStr.trim();
+// var x = myStr.split(' ').slice(2,4).join();
+var x = myStr.includes("fakhr");
 console.log(x);
