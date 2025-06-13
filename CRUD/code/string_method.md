@@ -179,3 +179,53 @@ console.log(x);
 
 // output : true
 ```
+---
+> replace : replace a word with another word
+- return in see first word
+- replaceAll
+```js
+var myStr = 'Hello iam ahmed mohamed and my nickname is fakhr because iam fakhr';
+var x = myStr.replace("fakhr","Mo");
+console.log(x);
+
+// output : Hello iam ahmed mohamed and my nickname is Mo because iam fakhr
+
+var x = myStr.replaceAll("fakhr","Mo");
+// output : Hello iam ahmed mohamed and my nickname is Mo because iam Mo
+
+```
+---
+>pad
+- padEnd : add char to end of string
+- add char to end of string length + length you need add
+- padEnd(max length , char)
+- padStart : add char to start of string
+
+```js
+
+var myStr = 'Hello iam ahmed mohamed and my nickname is fakhr because iam fakhr';
+
+var x = myStr.padEnd(90,"Mo");
+console.log(x);
+
+// output : Hello iam ahmed mohamed and my nickname is fakhr because iam fakhrMoMoMoMoMoMoMoMoMoMoMoMo
+
+var myStr = 'Hello';
+var x = myStr.padEnd(10,"5");
+console.log(x);
+
+// output : Hello55555
+
+var myStr = 'Hello';
+var x = myStr.padEnd(5,"5");
+console.log(x);
+
+// output : Hello
+
+var myStr = 'Hello';
+// var x = myStr.padEnd(10,"5");
+var x = myStr.padStart(10,"5");
+console.log(x);
+
+// output : 55555Hello
+```

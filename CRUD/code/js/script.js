@@ -145,7 +145,7 @@ function updateProduct(index){
 
 // string method 
 
-var myStr = 'Hello iam ahmed mohamed and my nickname is fakhr because iam fakhr';
+// var myStr = 'Hello iam ahmed mohamed and my nickname is fakhr because iam fakhr';
 // var x = myStr.charAt(2);
 // var x = myStr.at(2);
 // var x = myStr[0];
@@ -158,5 +158,10 @@ var myStr = 'Hello iam ahmed mohamed and my nickname is fakhr because iam fakhr'
 // var x = myStr+' i love coding';
 // var x = myStr.trim();
 // var x = myStr.split(' ').slice(2,4).join();
-var x = myStr.includes("fakhr");
+// var x = myStr.includes("fakhr");
+// var x = myStr.replace("fakhr","Mo");
+// var x = myStr.replaceAll("fakhr","Mo");
+var myStr = 'Hello';
+// var x = myStr.padEnd(10,"5");
+var x = myStr.padStart(10,"5");
 console.log(x);
