@@ -52,7 +52,11 @@
     <button onclick="resetForm()"  class="btn mx-2 btn-danger rounded-0" type="reset" id="resetBtn">Reset</button>
   </div>
 
-<input id="search"  type="text" placeholder="search by product name" class="form-control w-50 m-auto my-5"/>
+
+
+<input id="search" oninput="searchProduct()"  type="text" placeholder="search by product name" class="form-control w-50 m-auto my-5"/>
+
+
 
   <div class="container">
     <div class="row" id="rowBody">

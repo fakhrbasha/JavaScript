@@ -8,6 +8,8 @@ var productPrice = document.getElementById('productPrice');
 var productCategory = document.getElementById('productCategory');
 var productDesc = document.getElementById('productDesc');
 var productImg = document.getElementById('productImage');
+
+var searchInput = document.getElementById('search')
 var productList ;
 
 
@@ -118,7 +120,32 @@ function updateProduct(index){
 }
 
 // search product 
+function searchProduct(){
+    var term = searchInput.value;
+    var cartonna = ``;
+    for(var i = 0 ; i < productList.length ;i++ ){
+        if(productList[i].pName.toLowerCase().includes(term.toLowerCase())){
+            cartonna +=`
+             <div class="col-md-4">
+              <div class="border  rounded-3 p-3">
+                <img src="${productList[i].img}" alt="img" class="w-100"/>
+                <div class="p-2">
+                  <p><span class="fw-semibold">Name :</span> ${productList[i].pName}</p>
+                  <p><span class="fw-semibold">Price :</span> ${productList[i].pPrice}</p>
+                  <p><span class="fw-semibold">Category :</span> ${productList[i].pCategory}</p>
+                  <p><span class="fw-semibold">Description :</span> ${productList[i].pDesc}</p>
+                </div>
+                <button onClick="updateProduct(${i})" class="btn btn-outline-warning w-100 mb-2">Update</button>
+                <button onClick="deleteProduct(${i})" class="btn btn-outline-danger w-100">Delete</button>
+              </div>
+           </div>
+        `
+        }
+    }
+    document.getElementById('rowBody').innerHTML = cartonna;
 
+}
+// searchProduct("sam")
 
 
 
