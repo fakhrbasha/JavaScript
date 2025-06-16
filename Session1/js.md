@@ -1,4 +1,4 @@
-***__Javascript__***
+# JavaScript
 
 - EcmaScript 2015 (ES6)
 

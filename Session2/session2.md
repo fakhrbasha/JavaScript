@@ -1,5 +1,5 @@
-***JAVA-SCRIPT***
-1. Function
+
+## Function
     -  reusability 
     - reuse code 
 ```
@@ -50,7 +50,7 @@ average('ahmed',200); //NaN
 
 ```
 
-2. Function Scope
+## Function Scope
 
 ```
 function getSum( x , y){
@@ -81,7 +81,7 @@ loop same thing
 
 __*any variable global scope ! defined in function*__
 
-3. self invoked function
+## self invoked function
     -  self invoked function -> anonymous function -> function without name call itself
 
 ```
@@ -96,7 +96,7 @@ console.log('self invoked function');
 - **_important thing in self invoked function -> scope is not global scope_**
 - **_it is local scope | function scope |_**
 
-4. return statement
+## return statement
 ```
 - return statement -> return a value
 
@@ -166,7 +166,7 @@ var x = parent1();
 console.log(x); // child1   
 ```
 
-***Hoisting***   
+## Hoisting   
 ! important for interview
 -  hoisting will push declaration to top of the scope
 - from this
@@ -212,7 +212,7 @@ x = 10 ;
 - because this output undefined any other language program get error
 - but in javascript it just print undefined
 
-**_Type Function_**
+## Type Function
 - declaration function ->any function start with keyword function
 - expression function -> any function without keyword function
 

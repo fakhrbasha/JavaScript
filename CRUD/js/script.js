@@ -143,6 +143,8 @@ function searchProduct(){
         }
     }
     document.getElementById('rowBody').innerHTML = cartonna;
+// if cartonna is empty return all in array
+// samsung.includes("") -> true
 
 }
 // searchProduct("sam")

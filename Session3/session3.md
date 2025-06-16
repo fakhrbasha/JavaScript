@@ -1,5 +1,5 @@
 =======================
-***Session 3 - JavaScript***
+# JS
 =======================
 
 <h3>Object</h3>
@@ -7,12 +7,12 @@
 - non preemptive dt
 - object to simulate real world object
 
-```
+```js
 var obj = {}; 
 console.log(typeof obj); // object
 ```
 
-```
+```js
 var obj = {
     // property
     // key      value
@@ -32,7 +32,7 @@ console.log(obj['salary']);
 
 <h5>Nested Object</h5>
 
-```
+```js
 //  obj nested
 var obj = {
     // property
@@ -53,7 +53,7 @@ console.log(obj.objchild.name);
 ```
 <h5>property function</h5>
 
-```
+```js
 var obj = {
     // property
     // key      value
@@ -78,7 +78,7 @@ obj.eat('pasta');
 - list
 - var friend = [] ;
 
-```
+```js
 var friends = ['Ahmed' , 'Ali' , 'Amr' , 'Saif'];
 console.log(friends);
 console.log(friends[1]); // Ali
@@ -92,26 +92,26 @@ for(var i = 0 ; i < friends.length ; i++){
 
 
 - Sort 
-```
+```js
 var friends = ['Ahmed' , 'Ali' , 'Amr' , 'Saif'];
 friends.sort();
 console.log(friends);
 ```
 - reverse
-```
+```js
 var friends = ['Ahmed' , 'Ali' , 'Amr' , 'Saif'];
 friends.reverse(); // saif ali amr ahmed
 console.log(friends);
 ```
 - push
-```
+```js
 var friends = ['Ahmed' , 'Ali' , 'Amr' , 'Saif'];
 friends.push('fakhrayan'); // saif ali amr ahmed fakhrayan
 friends.push('amr ','ahmed ali')
 console.log(friends);
 ```
 - pop
-```
+```js
 var friends = ['Ahmed' , 'Ali' , 'Amr' , 'Saif'];
 var removed = friends.pop(); // Saif
 console.log(removed);
@@ -119,12 +119,12 @@ console.log(friends); // Ahmed Ali Amr
 ```
 
 - unshift -> push in first 
-```
+```js
 friends.unshift('fakhrayan'); // fakhrayan ahmed ali amr 
 console.log(friends);
 ```
 - shift -> pop in first 
-```
+```js
 friends.shift(); // ahmed ali amr 
 console.log(friends);
 ```
@@ -133,7 +133,7 @@ console.log(friends);
 - splice add 
 - splice (start , delete count , add item 1 , add item 2 , add item 3 , add item 4 )
 
-```
+```js
 var friends = ['ahmed' , 'ali' , 'amr' , 'fakhr'];
 var deleted = friends.splice(1,2,"fakhrbasha","mohamed salah");
 console.log(friends);
@@ -144,7 +144,7 @@ console.log(friends);
 ```
 
 - slice  Returns a copy of a section of an array.
-```
+```js
 var friends = ['ahmed' ,"fakhr", 'ali' , 'amr' , 'fakhr'];
 
 var after = friends.slice(1,2); // ali
@@ -152,26 +152,26 @@ var after = friends.slice(1,2); // ali
 // var after = friends.slice(undefined,0); undefined = 0 to 5
 console.log(after); // ali
 ```
-- include -> search
-```
+- includes -> search
+```js
 friends.includes("ali"); // true
 friends.includes("fakhr"); // false
 
 console.log(friends.includes("ali",2)); // false from 2 to end
 ```
 - indexOf -> search return index of first value
-```
+```js
 console.log(friends.indexOf("fakhr")); // 3
 console.log(friends.lastIndexOf("fakhr")); // last index
 ```
 
 - tostring 
-```
+```js
 var xx =friends.toString();
 console.log(xx); //ahmed,ali,amr,fakhr
 
 ```
-```
+```js
 var friendss = ['fakhr', 'fakhr' , 'ahmed' ,'ali' , 'fakhr'];
 var foundfakhr = [];
 var count = 0;
