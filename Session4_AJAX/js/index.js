@@ -67,12 +67,12 @@ function test(){
 // tag.style.property= 'value; 
 // inline style
 
-var demo = document.getElementById('demo');
+// var demo = document.getElementById('demo');
 
-btn.addEventListener('click',function(){
-    demo.style.backgroundColor = 'red';
-    demo.style.width='300px'
-})
+// btn.addEventListener('click',function(){
+//     demo.style.backgroundColor = 'red';
+//     demo.style.width='300px'
+// })
 // move img with you
 // var img = document.querySelector('img');
 // document.addEventListener('mousemove',function(e){
@@ -95,12 +95,24 @@ btn.addEventListener('click',function(){
 // contains
 // item
 // replace
-btn,addEventListener('click',function(){
-    demo.setAttribute('href','#fakhr')
-    var x = demo.getAttribute('id')
-    console.log(x); // demo
-    demo.classList.add('text-info')
-    demo.classList.toggle('text-center');
-    demo.classList.replace('text-info' , 'text-white')
-    demo.classList.remove('text-white');
-})
+// btn,addEventListener('click',function(){
+//     demo.setAttribute('href','#fakhr')
+//     var x = demo.getAttribute('id')
+//     console.log(x); // demo
+//     demo.classList.add('text-info')
+//     demo.classList.toggle('text-center');
+//     demo.classList.replace('text-info' , 'text-white')
+//     demo.classList.remove('text-white');
+// })
+
+var primary = document.querySelector('.imgBox');
+var sec = document.querySelectorAll('.img-item');
+
+for(var i = 0 ; i < sec.length;i++){
+    sec[i].addEventListener('click',function(element){
+        var clicked = element.target;
+        console.log(element.target);
+        var imgSrc = clicked.getAttribute('src');
+        primary.setAttribute('src',imgSrc)
+    })
+}
