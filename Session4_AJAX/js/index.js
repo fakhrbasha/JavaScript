@@ -74,11 +74,33 @@ btn.addEventListener('click',function(){
     demo.style.width='300px'
 })
 // move img with you
-var img = document.querySelector('img');
-document.addEventListener('mousemove',function(e){
-    img.style.position = 'absolute'
-    img.style.left = e.clientX+'px';
-    img.style.top = e.clientY+'px';
-})
+// var img = document.querySelector('img');
+// document.addEventListener('mousemove',function(e){
+//     img.style.position = 'absolute'
+//     img.style.left = e.clientX+'px';
+//     img.style.top = e.clientY+'px';
+// })
 
 // setAttribute
+// getAttribute
+// removeAttribute
+
+
+
+
+// classList
+// add
+// remove
+// toggle here remove not here add
+// contains
+// item
+// replace
+btn,addEventListener('click',function(){
+    demo.setAttribute('href','#fakhr')
+    var x = demo.getAttribute('id')
+    console.log(x); // demo
+    demo.classList.add('text-info')
+    demo.classList.toggle('text-center');
+    demo.classList.replace('text-info' , 'text-white')
+    demo.classList.remove('text-white');
+})
