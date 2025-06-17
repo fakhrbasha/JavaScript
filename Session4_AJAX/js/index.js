@@ -54,7 +54,7 @@ function test(){
 // dragend in html draggable = true
 // submit
 
-// if you make form when sibmit make refresh 
+// if you make form when submit make refresh 
 // form.addEventListener('submit',function(e){
 //     e.preventDefault(); // this
 //     console.log('submit');
