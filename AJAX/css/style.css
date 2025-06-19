@@ -4,3 +4,11 @@
     background-color: red;
     margin: 10px;
 }
+img{
+    width:20%;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
