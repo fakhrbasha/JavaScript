@@ -12,3 +12,9 @@ img{
     padding: 0;
     box-sizing: border-box;
 }
+.item-img{
+    width: 25%;
+    float: left;
+    padding: 10px;
+    cursor: pointer;
+}
