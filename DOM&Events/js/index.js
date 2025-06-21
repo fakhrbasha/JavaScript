@@ -1,8 +1,10 @@
 // document.body.addEventListener('click',function(e){
 //     console.log(e.clientX);
 //     // console.log('hi');
+
+
 // })
-var item = document.querySelector('.item');
+// var item = document.querySelector('.item');
 
 // click
 // var item = document.querySelector('.item');
@@ -206,12 +208,50 @@ hi[object HTMLButtonElement]
 //     mouse.style.top = eventInfo.clientY + 'px';
 // })
 
-var mainImg = document.querySelector('#mainImage')
-var replaced = document.querySelectorAll('.item-img')
+// var mainImg = document.querySelector('#mainImage')
+// var replaced = document.querySelectorAll('.item-img')
 
-for(var i=0;i<replaced.length;i++){
-    replaced[i].addEventListener('click',function(evenInfo){
-        var imgSrc = evenInfo.target.getAttribute('src')
-        mainImg.setAttribute('src' , imgSrc)
-    })
-}
+// for(var i=0;i<replaced.length;i++){
+//     replaced[i].addEventListener('click',function(evenInfo){
+//         var imgSrc = evenInfo.target.getAttribute('src')
+//         mainImg.setAttribute('src' , imgSrc)
+//     })
+// }
+
+// dom traversal
+
+// var container = document.querySelector('.container')
+
+// // all children 
+// console.log(container.children); // HTMLCollection(5) [h1, h1, h1, h1, h1]
+
+// // change color second children to white when click container
+// container.addEventListener('click',function(){
+//     container.children[1].style.color = 'white'
+//     // parent element
+//     container.parentElement.style.backgroundColor = 'blue'
+// })
+// // childNode : anything calculated space between child calculated
+// console.log(container.childNodes); // NodeList(11) [text, h1, text, h1, text, h1, text, h1, text, h1, text]
+
+// console.log(container.nextElementSibling); // first element next me
+// console.log(container.nextSibling); // first anything next me node or text or space
+
+// console.log(container.previousElementSibling); // first element prevues me
+
+// cerate element
+// var myImg = document.createElement('img')
+// myImg.setAttribute('src' , '/img/3.jpg')
+// myImg.setAttribute('alt' , 'fakhr')
+// myImg.classList.add('w-50' , 'rounded-circle')
+// // add image in body
+// document.body.appendChild(myImg)
+
+// // append 
+// // prepend
+
+var element = document.querySelectorAll('p')
+console.log(element);
+var newP = document.createElement('p')
+document.body.append(newP);
+console.log(element);

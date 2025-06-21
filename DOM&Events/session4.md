@@ -29,6 +29,94 @@ var element = document.querySelectorAll('css Selector'); // select all element i
 - document.image
 - document.title
 
+
+> DOM Traversal
+- traverse between element
+```html
+    <h1>hello fakhr</h1>
+    <div class="container bg-danger">
+        <h1>hello mr</h1>
+        <h1>hello mr</h1>
+        <h1>hello mr</h1>
+        <h1>hello mr</h1>
+        <h1>hello mr</h1>
+    </div>
+    <h1>hello fakhr</h1>
+```
+- children
+- parentElement
+- childNodes
+- nextElementSibling
+- nextSibling
+- previousElementSibling
+```js
+var container = document.querySelector('.container')
+
+// all children 
+console.log(container.children); // HTMLCollection(5) [h1, h1, h1, h1, h1]
+
+// change color second children to white when click container
+container.addEventListener('click',function(){
+    container.children[1].style.color = 'white'
+    // parent element
+    container.parentElement.style.backgroundColor = 'blue'
+})
+// childNode : anything calculated space between child calculated
+console.log(container.childNodes); // NodeList(11) [text, h1, text, h1, text, h1, text, h1, text, h1, text]
+
+console.log(container.nextElementSibling); // first element next me
+console.log(container.nextSibling); // first anything next me node or text or space
+
+console.log(container.previousElementSibling); // first element prevues me
+```
+> Create Element 
+
+```js
+var myImg = document.createElement('img')
+myImg.setAttribute('src' , '/img/3.jpg')
+myImg.setAttribute('alt' , 'fakhr')
+myImg.classList.add('w-50' , 'rounded-circle')
+// add image in body
+document.body.appendChild(myImg)
+
+// append 
+// prepend
+```
+> different between htmlCollection & NodeList
+
+|   htmlCollection               | NodeList                               |
+| -----------------------------|----------------------------------------|
+| return html element only     | return node element may text node      |
+| live can update (append) | Not Live (don't change)                                  |
+| less info                        | More info                                   |
+
+- htmlCollection
+```js
+var element = document.getElementsByTagName('p')
+console.log(element);
+var newP = document.createElement('p')
+document.body.append(newP);
+console.log(element);
+// output : 
+/*
+HTMLCollection(4) [p, p, p, p]
+HTMLCollection(5) [p, p, p, p, p]
+*/
+```
+- NodeList
+```js
+var element = document.querySelectorAll('p')
+console.log(element);
+var newP = document.createElement('p')
+document.body.append(newP);
+console.log(element);
+// output : 
+/*
+HTMLCollection(4) [p, p, p, p]
+HTMLCollection(4) [p, p, p, p]
+*/
+```
+
 ## Event Listener
 - add to only one element 
 - varName.addEventLisitener('click',functionName)
@@ -85,6 +173,9 @@ for(var i = 0;i<fakhr.length;i++){
     })
 }
 ```
+
+
+
 > Events
 - click
 - mouseover
