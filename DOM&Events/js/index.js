@@ -165,7 +165,7 @@ hello[object HTMLBodyElement]
 // div.addEventListener('click' , function(e){
 //   //2
 //   console.log('hello' + e.currentTarget);
-  
+
 // },true)
 /*
 output : 
