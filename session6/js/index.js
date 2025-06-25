@@ -340,14 +340,101 @@ Window {window: Window, self: Window, document: document, name: '', location: L
 
 // spread operator
 
-function getAvg (x=0,y=0,z=0){
-  let sum = x + y + z;
-  let avg = sum / 4;
-  console.log(avg);
-}
-let nums = [10,20,30,40]
-// getAvg(10,20,30,40);
-getAvg(...nums);
+// function getAvg (x=0,y=0,z=0){
+//   let sum = x + y + z;
+//   let avg = sum / 4;
+//   console.log(avg);
+// }
+// let nums = [10,20,30,40]
+// // getAvg(10,20,30,40);
+// getAvg(...nums);
+
+// let schoolFriend = ['ahmed' , 'ali' , 'fakhr']
+// let allFriend = ['mohamed' ,[...schoolFriend], 'shaker']
+// console.log(allFriend);
+// /*
+//  (3) ['mohamed', Array(3), 'shaker']
+// 0: "mohamed"
+// 1: (3) ['ahmed', 'ali', 'fakhr']
+// 2: "shaker"
+// length: 3 
+//  */
+
+// rest param
+
+// // function getAvg(...num)
+// // {
+// //   console.log(num); // (4) [10, 20, 30, 40]
+// // }
+// // getAvg(10,20,30,40)
+// function getAvg(...nums)
+// {
+//   let sum = 0;
+//   for (const num of nums) {
+//     sum+=num
+//   }
+//   let avg = sum/nums.length
+//   console.log(avg);
+// }
+// getAvg(10,20,30,40,50)
+
+// let obj1 = {
+//   name : 'ahmed',
+//   age : 21
+// }
+// let obj2 = {
+//   gender : 'male',
+//   salary : 90000,
+//   ...obj1
+// }
+// console.log(obj2); // {name: 'ahmed', age: 21, gender: 'male', salary: 90000}
+
+
+// deep copy
+
+// let nums1 = [10,20,30,40]
+// let nums2 =nums1 ;
+
+// nums2.push(50)
+
+// console.log(nums1); // (5) [10, 20, 30, 40,50]
+// console.log(nums2); // (5) [10, 20, 30, 40,50]
+
+// let nums1 = [10,20,30,40]
+// let nums2 =[...nums1] ;
+
+// nums2.push(50)
+
+// console.log(nums1); // (4) [10, 20, 30, 40]
+// console.log(nums2); // (5) [10, 20, 30, 40,50]
+
+
+
+
+// let obj1 = {
+//   isAdmin : false,
+//   age : 21,
+//   son :{
+//     age : 1
+//   }
+// }
+// let obj2 = structuredClone(obj1)
+// obj1.son.age = 2;
+// console.log(obj1);
+// console.log(obj2);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

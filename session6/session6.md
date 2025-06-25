@@ -176,3 +176,189 @@ let nums = [10,20,30,40]
 getAvg(...nums);
 // 15
 ```
+
+```js
+let schoolFriend = ['ahmed' , 'ali' , 'fakhr']
+let allFriend = ['mohamed' , 'shaker']
+
+let spread = [...schoolFriend , ...allFriend]
+console.log(spread);
+// (5) ['ahmed', 'ali', 'fakhr', 'mohamed', 'shaker']
+```
+```js
+let schoolFriend = ['ahmed' , 'ali' , 'fakhr']
+let allFriend = ['mohamed' ,[...schoolFriend], 'shaker']
+console.log(allFriend);
+/*
+ (3) ['mohamed', Array(3), 'shaker']
+0: "mohamed"
+1: (3) ['ahmed', 'ali', 'fakhr']
+2: "shaker"
+length: 3 
+ */
+```
+
+> Rest Parameter 
+- spread operator but on param
+
+```js
+// function getAvg(...num)
+// {
+//   console.log(num); // (4) [10, 20, 30, 40]
+// }
+// getAvg(10,20,30,40)
+function getAvg(...nums)
+{
+  let sum = 0;
+  for (const num of nums) {
+    sum+=num
+  }
+  let avg = sum/nums.length
+  console.log(avg);
+}
+getAvg(10,20,30,40,50)
+// 30
+```
+
+> Spread With Object
+```js
+let obj1 = {
+  name : 'ahmed',
+  age : 21
+}
+let obj2 = {
+  gender : 'male',
+  salary : 90000
+}
+let person = {...obj1,...obj2}
+console.log(person); // {name: 'ahmed', age: 21, gender: 'male', salary: 90000}
+```
+- OR 
+```js
+let obj1 = {
+  name : 'ahmed',
+  age : 21
+}
+let obj2 = {
+  gender : 'male',
+  salary : 90000,
+  ...obj1
+}
+console.log(obj2); // {name: 'ahmed', age: 21, gender: 'male', salary: 90000}
+```
+
+# Memory & Deep Copy InterView
+## What is Memory 
+- Memory is a place where computer stores data
+- Memory is divided into two parts : 
+  - Stack 
+  - Heap 
+- Stack : 
+  - Stores primitive data types and references (not the object itself) to objects in the heap
+- Heap : 
+  - Stores the actual objects (reference types)
+```js
+int x = 10;             // x is stored in Stack
+String s = "hello";     // s (reference) is in Stack, the String object "hello" is in Heap
+```
+![EX](image.png)
+![EX](image-1.png)
+> Shallow Copy 
+- This name is Shallow Copy : because the reference is copied to another variable
+```js
+let nums1 = [10,20,30,40]
+let nums2 =nums1 ;
+
+nums2.push(50)
+
+console.log(nums1); // (5) [10, 20, 30, 40,50]
+console.log(nums2); // (5) [10, 20, 30, 40,50]
+// nums1 and nums2 is reference to same memory
+```
+```js
+let obj1 = {
+  name : 'ahmed',
+  age : 21
+}
+let obj2=obj1
+obj2.name = 'ali';
+console.log(obj1); //{name: 'ali', age: 21}
+console.log(obj2); // {name: 'ali', age: 21}
+```
+>Deep Copy
+- two arr has two different memory
+- using spread operator
+```js
+let nums1 = [10,20,30,40]
+let nums2 =[...nums1] ;
+//         [] -> crate new arr 
+
+nums2.push(50)
+
+console.log(nums1); // (4) [10, 20, 30, 40]
+console.log(nums2); // (5) [10, 20, 30, 40,50]
+```
+```js
+let obj1 = {
+  name : 'ahmed',
+  age : 21
+}
+let obj2={...obj1}
+obj2.name = 'ali';
+console.log(obj1); //{name: 'ahmed', age: 21}
+console.log(obj2); // {name: 'ali', age: 21}
+```
+- **spread operator not best choice for deep copy Because it work for one level in object**
+- if object has object inside not allow
+![EX](image-2.png)
+```js
+let obj1 = {
+  isAdmin : false,
+  age : 21,
+  son :{
+    age : 1
+  }
+}
+let obj2={...obj1}
+obj1.son.age = 2;
+console.log(obj1);
+console.log(obj2);
+```
+![EX](image-3.png)
+
+**Solution**
+- JSON.parse(JSON.stringify())
+
+```js
+let obj1 = {
+  isAdmin : false,
+  age : 21,
+  son :{
+    age : 1
+  }
+}
+let obj2 = JSON.parse(JSON.stringify(obj1));
+obj1.son.age = 2;
+console.log(obj1);
+console.log(obj2);
+```
+![EX](image-4.png)
+- but has error on date datatype
+
+- **use structureClone**
+```js
+let obj1 = {
+  isAdmin : false,
+  age : 21,
+  son :{
+    age : 1
+  }
+}
+let obj2 = structuredClone(obj1)
+obj1.son.age = 2;
+console.log(obj1);
+console.log(obj2);
+```
+# Map
+
+- Map is a new data structure in ES6
