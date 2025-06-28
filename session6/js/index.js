@@ -585,19 +585,43 @@ Window {window: Window, self: Window, document: document, name: '', location: L
 // // if func have one return statement can remove return keyword and {}
 // let welcome3 = (user)=> `welcome ${user}`
 
-let person = {
-    name : 'ahmed',
-    age : 21 ,
-    salary : 8000,
-    hello:function(){
-        console.log(`hi me ${this.name}`); // ahmed
-    },
-    calcSalary:function(){
-        let calcTax = ()=>
-        {
-            return this.salary * 10 / 100; 
-        }
-        return this.salary - calcTax()
+// let person = {
+//     name : 'ahmed',
+//     age : 21 ,
+//     salary : 8000,
+//     hello:function(){
+//         console.log(`hi me ${this.name}`); // ahmed
+//     },
+//     calcSalary:function(){
+//         let calcTax = ()=>
+//         {
+//             return this.salary * 10 / 100; 
+//         }
+//         return this.salary - calcTax()
+//     }
+// }
+// console.log(person.calcSalary()); // 7200
+
+// oop
+
+let human = {
+    isLive : true,
+    eat:()=>{
+        console.log('hello');
     }
 }
-console.log(person.calcSalary()); // 7200
+let user = {
+    name : 'ahmed',
+    age : 22
+}
+let eng = {
+    dept : 'CS',
+    uni : 'Sadat'
+}
+// to create inheritance
+// Object.setPrototypeOf(child , parent)
+Object.setPrototypeOf(user , human)
+console.log(user.isLive);
+Object.setPrototypeOf(eng , user)
+console.log(eng);
+// anything add in setPrototype(not object or null) without this ignore

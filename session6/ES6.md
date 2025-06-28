@@ -583,3 +583,35 @@ class Instructor{
 }
 let ahmed = new Instructor()
 ```
+- everything can touch it -> object
+- class -> template contain characteristics
+
+- js -> prototype-based
+
+## prototype inheritance
+- any object in js has property named prototype
+- to create inheritance 
+> Object.setPrototypeOf(child , parent)
+```js
+let human = {
+    isLive : true,
+    eat:()=>{
+        console.log('hello');
+    }
+}
+let user = {
+    name : 'ahmed',
+    age : 22
+}
+Object.setPrototypeOf(user , human)
+console.log(user.isLive); // true
+let eng = {
+    dept : 'CS',
+    uni : 'Sadat'
+}
+Object.setPrototypeOf(eng , user)
+console.log(eng.isLive); // true
+```
+![EX](image-5.png)
+- anything add in setPrototype(not object or null) without this ignore
+- can't create circle inheritance
