@@ -193,6 +193,7 @@
 {name: 'ahmed', age: 21, welcome: ƒ}
 Window {window: Window, self: Window, document: document, name: '', location: Location, …}
 */
+
 // let student = {
 //     name : 'ahmed',
 //     age:21,
@@ -424,23 +425,179 @@ Window {window: Window, self: Window, document: document, name: '', location: L
 // console.log(obj2);
 
 
+// map
+
+// let user = {
+//     name : 'ahmed',
+//     age : 21 ,
+//     gender : 'male'
+// }
 
 
 
+// let userMap  = new Map() // {}
+// // create map empty
+// // userMap.set('key' , 'value')
+// userMap.set('name' , 'ahmed')
+// userMap.set('age',21)
+// userMap.set('gender', 'male');
+// userMap.set('salary' , 50000)
 
 
+// console.log(userMap);
+// /*
+//     {'name' => 'ahmed', 'age' => 21, 'gender' => 'male', 'salary' => 50000}
+// */
+// // profit
+// console.log(userMap.size); // 4 not in obj
+// // userMap.delete('key')
+// userMap.delete('age')
+// console.log(userMap); // Map(3) {'name' => 'ahmed', 'gender' => 'male', 'salary' => 50000}
+// // has key
+// console.log(userMap.has('name') ); // true or false
+// // userMap.clear() to clear map
+// console.log(userMap.get('salary'));
+// console.log(userMap.keys());
+// console.log(userMap.values());
+// console.log(userMap.entries()); // element
+
+// for (const x of userMap) {
+//     console.log(x); // return entries
+// }
+// for (const x of userMap) {
+//     console.log(x[0]); // return keys
+// }
+// for (const x of userMap) {
+//     console.log(x[1]); // return values
+// }
+// /*
+//     (2) ['name', 'ahmed']
+//     (2) ['gender', 'male']
+//     (2) ['salary', 50000]
+//     return array
+// */
+// // using destructing 
+// for (const [key,value] of userMap) {
+//     console.log(key , value); 
+// }
+// // map can make any datatype of key you want to make key as object available , or func
 
 
+// // convert obj to map
+// let user = {
+//     name : 'ahmed',
+//     age : 21 ,
+//     gender : 'male'
+// }
+// let userMap2 = new Map(Object.entries(user))
+// console.log(userMap2); // and make all method
+
+// // convert from map to obj
+// let obj = Object.fromEntries(userMap)
+// console.log(obj);
+
+// // # Destructuring
+// // - it's a way to extract values from arrays or objects and assign them to variables
+// let  x = ['ahmed' , 'mohamed']
+// let [y,z] = x 
+// // y = 'ahmed
+// // z = mohamed
+
+// set
+
+// let prices = new Set()
+// prices.add(100).add(200).add(100)
+// console.log(prices); // return unique values
+// 100
+// 200
+// same method map
+// for (const x of prices) {
+//     console.log(x);
+// }
+// don't have array method
+// let arr =Array.from (new Set([100,100,1001,1001,110,200,200]))
+// console.log(arr);
+// (4) [100, 1001, 110, 200]
+// let uniqueArr = new Set(arr)
+// console.log(uniqueArr); // return unique values
+// // Set(4) {100, 1001, 110, 200}
+// let arrayUniqueArr = Array.from(uniqueArr)
+// console.log(arrayUniqueArr); // return unique values
+// // [100, 1001, 110, 200]
 
 
+// 'use strict'
+// function test (){
+//     console.log(this);
+// }
+// test()
 
 
+// let person = {
+//     name : 'ahmed',
+//     age : 21 ,
+//     salary : 8000,
+//     hello:function(){
+//         console.log(`hi me ${this.name}`); // ahmed
+//     },
+//     calcSalary:function(){
+//         function calcTax(){
+//           return (this.salary * 10) / 100; // this here return undefined because this this here Dealing with the function outside the scope (in window)
+//         }
+//         return this.salary - calcTax()
+//     }
+// }
+// console.log(person.calcSalary()); // NaN
+// to solve this 
+// create variable and move it 
 
+// let person = {
+//     name : 'ahmed',
+//     age : 21 ,
+//     salary : 8000,
+//     hello:function(){
+//         console.log(`hi me ${this.name}`); // ahmed
+//     },
+//     calcSalary:function(){
+//         let that = this
+//         function calcTax(){
+//           return (that.salary * 10) / 100; // this here return undefined because this this here Dealing with the function outside the scope (in window)
+//         }
+//         return this.salary - calcTax()
+//     }
+// }
+// console.log(person.calcSalary()); // 7200
+// or arrow func
 
+// declaration func (hoisting)
+// function test(userName){
+//     console.log(`welcome ${userName}`);
+// }
+// // expression func (not hoisting)
+// let welcome = function(userName){
+//     console.log(`welcome ${userName}`);
+// }
+// // arrow func
+// // delete keyword function and add after () arrow =>
+// let welcome2 = (username)=>{
+//     console.log(`welcome ${username}`);
+// }
+// // if func have one return statement can remove return keyword and {}
+// let welcome3 = (user)=> `welcome ${user}`
 
-
-
-
-
-// # Destructuring
-// - it's a way to extract values from arrays or objects and assign them to variables
+let person = {
+    name : 'ahmed',
+    age : 21 ,
+    salary : 8000,
+    hello:function(){
+        console.log(`hi me ${this.name}`); // ahmed
+    },
+    calcSalary:function(){
+        let calcTax = ()=>
+        {
+            return this.salary * 10 / 100; 
+        }
+        return this.salary - calcTax()
+    }
+}
+console.log(person.calcSalary()); // 7200
