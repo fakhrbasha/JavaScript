@@ -604,24 +604,146 @@ Window {window: Window, self: Window, document: document, name: '', location: L
 
 // oop
 
-let human = {
-    isLive : true,
-    eat:()=>{
-        console.log('hello');
-    }
-}
-let user = {
-    name : 'ahmed',
-    age : 22
-}
-let eng = {
-    dept : 'CS',
-    uni : 'Sadat'
-}
-// to create inheritance
-// Object.setPrototypeOf(child , parent)
-Object.setPrototypeOf(user , human)
-console.log(user.isLive);
-Object.setPrototypeOf(eng , user)
-console.log(eng);
+// let human = {
+//     isLive : true,
+//     eat:()=>{
+//         console.log('hello');
+//     }
+// }
+// let user = {
+//     name : 'ahmed',
+//     age : 22
+// }
+// let eng = {
+//     dept : 'CS',
+//     uni : 'Sadat'
+// }
+// // to create inheritance
+// // Object.setPrototypeOf(child , parent)
+// Object.setPrototypeOf(user , human)
+// console.log(user.isLive);
+// Object.setPrototypeOf(eng , user)
+// console.log(eng);
 // anything add in setPrototype(not object or null) without this ignore
+
+// String;
+// let str = new String('')
+// console.log(str);
+// // str ->inher String ->inher object
+// Number;
+// let num = new Number(21)
+// // Object.setPrototypeOf(num,String)
+// console.log(num);
+
+
+
+// ctor
+// function createUser (name , age , gender , salary){
+//     let obj = {}
+//     obj.fullName = name;
+//     obj.age = age;
+//     obj.gender = gender ;
+//     obj.salary = salary;
+//     return obj;
+// }
+// let user = createUser('fakhr' , 21 , 'male' , 8000)
+// let user2 = createUser('ahmed' , 21 , 'male' , 21000)
+// console.log(user);
+// console.log(user2.salary);
+
+// constructor function
+// function User(name , age , gender , salary , friends){
+//     this.fullname = name;
+//     this.age = age ;
+//     this.gender = gender;
+//     this.salary = salary;
+//     this.friends = friends
+//     this.welcome2 = function(){
+//         console.log(`welcome ${this.fullname}`);
+//     }
+// }
+// let user1 = new User('ahmed' , 21 , 'male' , 21000 ,['ibrahim' , 'Adeeb' , 'Saif'] )
+// let user2 = new User('fakhr' , 21 , 'male' , 21000, ['ibrahim' , 'Medo' , 'hassan'] )
+// console.log(user1);
+// new -> create obj 
+// connect this be object has created
+// run object in user 
+// return obj to variable name (user)
+
+// ctor func
+
+// User.prototype.nameFunction = function(){}
+// User.prototype.welcome = function(){
+//     console.log(`welcome ${this.fullname}` );
+// }
+// user2.welcome()
+// user1.welcome2()
+
+// different
+// when type this -> create version for any create new object
+// in memory user1 has function welcome2 and user2 has function welcome2
+// but when create function using prototype create one function in memory in one object and all object inheritance this function shared for all objects
+
+
+// class User{
+//     // can't be use let or var in class
+//     // class contain methods and in method create anything need it or property
+//     // by default activate strict mode
+//     constructor(Fname , age , gender , salary , friends) {
+//         this.fullName = Fname;
+//         this.age = age
+//         this.gender = gender 
+//         this.salary = salary
+//         this.friends = friends
+//     }
+//     // can't create more than one ctor
+//     // if create class without ctor js create ctor by default
+//     welcome(){
+//         // here can use let or var or .....
+//         console.log(`welcome ${this.fullName}`);
+//     }
+//     login(){
+//         console.log(`login ${this.fullName}`);
+//     }
+// }
+// let user1 = new User('fakhr' , 21 , 'male' , 21000 , ['ahmed' , 'fakhr'])
+// let user2 = new User('Mo' , 22 , 'male' , 21000, ['ibrahim' , 'Medo' , 'hassan'] )
+
+
+// inher -> extends
+// class Engineer extends User{
+
+//     constructor(Fname , age , gender , salary , friends, dept , uni) {
+//         super( Fname , age , gender , salary , friends); // call ctor parent
+//         this.Dept = dept
+//         this.uni = uni
+//         // if call super her error call in first before any this
+//     }
+//     // override
+//     welcome(){
+//         console.log(`welcome iam a ${this.fullName} eng`);
+//     }
+// }
+// let eng1 = new Engineer('fakhr' , 21 , 'male' , 21000 , ['ahmed' , 'fakhr'] , 'CS' , 'Sadat')
+// console.log(eng1);
+// console.log(eng1.welcome());
+
+// polymorphism
+// override => true in js, overloading false in js
+
+// class User{
+//     #fullname ='';
+//     constructor(Fname , age , gender , salary , friends) {
+//         this.#fullname = Fname;
+//         this.age = age
+//         this.gender = gender 
+//         this.salary = salary
+//         this.friends = friends
+//     }
+//     welcome(){
+//         console.log(`welcome ${this.#fullname}`);
+//     }
+//     login(){
+//         console.log(`login ${this.#fullname}`);
+//     }
+// }

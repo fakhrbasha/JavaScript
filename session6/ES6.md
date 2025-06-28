@@ -567,9 +567,18 @@ let person = {
 console.log(person.calcSalary()); // 7200
 ```
 # OOP
+
 - simulate reality
 - two way (class-based , prototype-based)
 - class-based : container contain characteristics and action in system
+
+> OOP Contain 
+- Inheritance
+- Polymorphism
+- Abstraction
+- Encapsulation
+
+- but all not js
 ```js
 class Instructor{
   - pseudo code
@@ -615,3 +624,202 @@ console.log(eng.isLive); // true
 ![EX](image-5.png)
 - anything add in setPrototype(not object or null) without this ignore
 - can't create circle inheritance
+```js
+String;
+let str = new String('')
+console.log(str);
+// str ->inher String ->inher object
+Number;
+let num = new Number(21)
+// num, -> inher Number -> inher Object .
+// Object.setPrototypeOf(num,String)
+console.log(num);
+
+```
+
+![EX](image-6.png)
+
+## Constructor & new keyword
+**Constructor : Special Method call automatic when create object from class**
+
+- ctor == constructor
+- function without ctor
+```js
+function createUser (name , age , gender , salary){
+    let obj = {}
+    obj.fullName = name;
+    obj.age = age;
+    obj.gender = gender ;
+    obj.salary = salary;
+    return obj;
+}
+let user = createUser('fakhr' , 21 , 'male' , 8000)
+let user2 = createUser('ahmed' , 21 , 'male' , 21000)
+console.log(user);
+console.log(user2.salary);
+```
+> Constructor Function
+- use this to return in new obj
+- create object from function
+```js
+function User(name , age , gender , salary){
+    this.fullname = name;
+    this.age = age ;
+    this.gender = gender;
+    this.salary = salary
+}
+let user = new User('ahmed' , 21 , 'male' , 21000 )
+console.log(user);
+```
+> new
+- create obj
+- connect this be object has created
+- run object in user 
+- return obj to variable name (user)
+
+- you can create function ctor two way
+```js
+function User(name , age , gender , salary , friends){
+    this.fullname = name;
+    this.age = age ;
+    this.gender = gender;
+    this.salary = salary;
+    this.friends = friends
+    this.welcome2 = function(){
+        console.log(`welcome ${this.fullname}`);
+    }
+}
+let user1 = new User('ahmed' , 21 , 'male' , 21000 ,['ibrahim' , 'Adeeb' , 'Saif'] )
+let user2 = new User('fakhr' , 21 , 'male' , 21000, ['ibrahim' , 'Medo' , 'hassan'] )
+```
+- or using prototype (common and true)
+
+```js
+User.prototype.welcome = function(){
+    console.log(`welcome ${this.fullname}` );
+}
+user2.welcome()
+user1.welcome2()
+```
+**Different Between create function using this and using prototype**
+
+*This*
+- when type this -> create version for any created object all abject has same function
+- in memory user1 has function welcome2 and user2 has function welcome2
+- not shared for all obj
+
+*Prototype*
+- when create function using prototype create one function in memory in one object and all object inheritance this function shared for all objects
+- shared for all obj
+
+## Class Syntax
+- ES6
+
+```js
+class User{
+    // can't be use let or var in class
+    // class contain methods and in method create anything need it or property
+    // by default activate strict mode
+    constructor(name , age , gender , salary , friends) {
+        this.fullName = name;
+        this.age = age
+        this.gender = gender 
+        this.salary = salary
+        this.friends = friends
+    }
+    // can't create more than one ctor
+    // if create class without ctor js create ctor by default
+    welcome = ()=>{
+        // here can use let or var or .....
+        console.log(`welcome ${this.fullName}`);
+        // cant access any property only use this
+    }
+    login(){
+        console.log(`login ${this.fullName}`);
+    }
+}
+let user1 = new User('fakhr' , 21 , 'male' , 21000 , ['ahmed' , 'fakhr'])
+let user2 = new User('Mo' , 22 , 'male' , 21000, ['ibrahim' , 'Medo' , 'hassan'] )
+
+console.log(user2);
+```
+- js still prototype-based class is syntax sugar
+
+## Inheritance
+- class child extends parent
+- keyword super to call ctor parent
+
+```js
+class User{
+
+    constructor(Fname , age , gender , salary , friends) {
+        this.fullName = Fname;
+        this.age = age
+        this.gender = gender 
+        this.salary = salary
+        this.friends = friends
+    }
+    welcome = ()=>{
+        console.log(`welcome ${this.fullName}`);
+    }
+    login(){
+        console.log(`login ${this.fullName}`);
+    }
+}
+class Engineer extends User{
+    constructor(Fname , age , gender , salary , friends, dept , uni) {
+        super( Fname , age , gender , salary , friends); // call ctor parent
+        this.Dept = dept
+        this.uni = uni
+        // if call super her error call in first before any this
+    }
+}
+let eng1 = new Engineer('fakhr' , 21 , 'male' , 21000 , ['ahmed' , 'fakhr'] , 'CS' , 'Sadat')
+console.log(eng1);
+console.log(eng1.welcome());
+```
+## Polymorphism
+- override => true in js , overloading false in js
+
+```js
+class Engineer extends User{
+
+    constructor(Fname , age , gender , salary , friends, dept , uni) {
+        super( Fname , age , gender , salary , friends); // call ctor parent
+        this.Dept = dept
+        this.uni = uni
+        // if call super her error call in first before any this
+    }
+    // override
+    welcome(){
+        console.log(`welcome iam a ${this.fullName} eng`);
+    }
+}
+```
+
+## Access Modifiers
+- related Encapsulation
+- public , private , protected
+- is js not have protected
+- default public
+- to make private before name add #
+- private can't access out class
+```js
+class User{
+    #fullname =''; // private
+    constructor(Fname , age , gender , salary , friends) {
+        this.#fullname = Fname;
+        this.age = age
+        this.gender = gender 
+        this.salary = salary
+        this.friends = friends
+    }
+    welcome(){
+        console.log(`welcome ${this.#fullname}`);
+    }
+    login(){
+        console.log(`login ${this.#fullname}`);
+    }
+}
+```
+- abstraction don't have direct in js
