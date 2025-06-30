@@ -177,6 +177,37 @@
 // send 
 // response
 
+
+let allProduct = []
+
 let mytHttp = new XMLHttpRequest(); // create instance 
 // mytHttp.open('method' , 'urlAPI')
-mytHttp.open('GET','https://ecommerce.routemisr.com/api/v1/products')
+mytHttp.open('GET','https://ecommerce.routemisr.com/api/v1/products') // establish connection
+mytHttp.send() // start send request
+// mytHttp.response  data here
+// console.log(mytHttp.response); run automatic when open because that response empty
+////// Don’t display the response until you're sure the request has completed
+// myHttp has event name load fire when complete
+// mytHttp.addEventListener('load' , function(){
+//     // console.log(mytHttp.response); // convert to JSON
+//     // console.log(JSON.parse(mytHttp.response).data);
+//     allProduct = JSON.parse(mytHttp.response).data
+// })
+
+// state have event name readyststechange
+// event run every change in ready state
+// readyState return number The changes in the request's readyState 
+
+// mytHttp.readyState = 0  request not initialize
+// mytHttp.readyState = 1 connection establish
+// mytHttp.readyState = 2 request received
+// mytHttp.readyState = 3 request processing
+// mytHttp.readyState = 4 response is ready
+
+// every number change readystate run
+mytHttp.addEventListener('readystatechange' , function(e){
+    // console.log(mytHttp.readyState); 2 3 4
+    if(mytHttp.readyState == 4){
+        allProduct = JSON.parse(mytHttp.response).data
+    }
+})
