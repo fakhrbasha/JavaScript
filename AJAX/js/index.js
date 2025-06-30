@@ -211,3 +211,8 @@ mytHttp.addEventListener('readystatechange' , function(e){
         allProduct = JSON.parse(mytHttp.response).data
     }
 })
+
+// has event name error when has api error
+mytHttp.addEventListener('error' , function(){
+    alert('Error in loading data from server')
+})
