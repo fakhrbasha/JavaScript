@@ -1,5 +1,5 @@
 # Strict Mode 
-
+- ES5
 ## What is Strict 
 - A mode that can be added to JavaScript code to help avoid some common errors
 ```js
@@ -823,3 +823,31 @@ class User{
 }
 ```
 - abstraction don't have direct in js
+
+- js functional programming and oop programming
+
+**When i can say this language in a functional programming**
+- assign function to variable 
+```js
+let x = function(){
+
+}
+```
+- pass function as parameter to function
+```js
+function one(two){
+
+}
+function two(){
+
+}
+```
+- function property in object
+```js
+let x = {
+  eat:function(){
+
+  }
+}
+```
+- return function from function
