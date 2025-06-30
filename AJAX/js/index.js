@@ -171,3 +171,12 @@
 // // finally  
 
 // api
+
+// xmlHttpREquest -> connect any  db or api
+// open 
+// send 
+// response
+
+let mytHttp = new XMLHttpRequest(); // create instance 
+// mytHttp.open('method' , 'urlAPI')
+mytHttp.open('GET','https://ecommerce.routemisr.com/api/v1/products')

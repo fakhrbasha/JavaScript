@@ -33,5 +33,12 @@ try{
 **API stands for Application Programming Interface.**
 - 🔌 It’s like a waiter between your app (frontend) and a server (backend).
 You ask for something (data), and it brings it to you.
+- api code generate by backend and give front end documentation to use this api in frontend
+- The data I send to the API is in JSON, and the data I receive is also in JSON.
+- JSON every platforms and tools understood very good and Very light and fast in data transfer 
+- every api have base-url and what i need from database name end-point
 
-- JSON : JavaScript Object notation
+> JSON : JavaScript Object notation
+
+
+### xmlHttpRequest
