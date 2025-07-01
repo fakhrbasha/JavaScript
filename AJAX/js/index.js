@@ -3,9 +3,9 @@
 // try{
 //     let x = 10;
 //     console.log(y);
-    
+
 // }catch(parm){
-    
+
 // }
 
 // api -> url (website jsonPlaceholder)
@@ -136,8 +136,8 @@
 //     http.addEventListener('readystatechange' , function(){
 //         if(http.readyState == 4 && http.status == 200) {
 //             datalist = JSON.parse(http.response).recipes
-            
-            
+
+
 //         }
 //     })
 // }
@@ -178,12 +178,12 @@
 // response
 
 
-let allProduct = []
+// let allProduct = []
 
-let mytHttp = new XMLHttpRequest(); // create instance 
-// mytHttp.open('method' , 'urlAPI')
-mytHttp.open('GET','https://ecommerce.routemisr.com/api/v1/products') // establish connection
-mytHttp.send() // start send request
+// let mytHttp = new XMLHttpRequest(); // create instance 
+// // mytHttp.open('method' , 'urlAPI')
+// mytHttp.open('GET','https://ecommerce.routemisr.com/api/v1/products') // establish connection
+// mytHttp.send() // start send request
 // mytHttp.response  data here
 // console.log(mytHttp.response); run automatic when open because that response empty
 ////// Don’t display the response until you're sure the request has completed
@@ -205,14 +205,132 @@ mytHttp.send() // start send request
 // mytHttp.readyState = 4 response is ready
 
 // every number change readystate run
-mytHttp.addEventListener('readystatechange' , function(e){
-    // console.log(mytHttp.readyState); 2 3 4
-    if(mytHttp.readyState == 4){
-        allProduct = JSON.parse(mytHttp.response).data
-    }
-})
+// mytHttp.addEventListener('readystatechange' , function(e){
+//     // console.log(mytHttp.readyState); 2 3 4
+//     if(mytHttp.readyState == 4){
+//         allProduct = JSON.parse(mytHttp.response).data
+//     }
+// })
 
-// has event name error when has api error
-mytHttp.addEventListener('error' , function(){
-    alert('Error in loading data from server')
+// // has event name error when has api error
+// mytHttp.addEventListener('error' , function(){
+//     alert('Error in loading data from server')
+// })
+
+let allRecipes = []
+
+// function getPizza(callback) {
+//     let myHttp = new XMLHttpRequest()
+//     myHttp.open('GET', 'https://forkify-api.herokuapp.com/api/v2/recipes?search=pizza')
+//     myHttp.send()
+
+//     myHttp.addEventListener('readystatechange', function () {
+//         if (myHttp.readyState == 4) {
+//             console.log('pizza');
+//             allRecipes = JSON.parse(myHttp.response).data.recipes;
+//             // console.log(allRecipes);
+//             callback()
+
+//         }
+//     })
+// }
+// console.log('hello1'); // synchronous
+// console.log('hello1'); // synchronous
+// console.log('hello1'); // synchronous
+// console.log('hello1'); // synchronous
+// getPizza() // Asynchronous i didn't know this code time this code
+// console.log('hello1'); // synchronous
+// console.log('hello1'); // synchronous
+// console.log('hello1'); // synchronous
+// console.log('hello2'); // synchronous
+// interview
+
+// js complete any sync code first and after this Async
+
+// getPizza() go to webAPIs and when js complete all sync code go to webAPIs and return function completed
+
+// hello1 
+// hello1 
+// hello1 
+// hello1 
+// hello1 
+// hello1 
+// hello1 
+// hello2 
+// getPizza()
+function getPizza(callback) {
+    let myHttp = new XMLHttpRequest()
+    myHttp.open('GET', 'https://forkify-api.herokuapp.com/api/v2/recipes?search=pizza')
+    myHttp.send()
+
+    myHttp.addEventListener('readystatechange', function () {
+        if (myHttp.readyState == 4) {
+            console.log('pizza');
+            allRecipes = JSON.parse(myHttp.response).data.recipes;
+            // console.log(allRecipes);
+            if(callback){
+                callback()
+            }
+        }
+    })
+}
+function getSalad(callback) {
+    let myHttp = new XMLHttpRequest()
+    myHttp.open('GET', 'https://forkify-api.herokuapp.com/api/v2/recipes?search=salad')
+    myHttp.send()
+    myHttp.addEventListener('readystatechange', function () {
+        if (myHttp.readyState == 4) {
+            console.log('salad');
+            allRecipes = JSON.parse(myHttp.response).data.recipes;
+            // console.log(allRecipes);
+            if(callback){
+                callback()
+            }
+        }
+    })
+}
+function getPasta(callback) {
+    let myHttp = new XMLHttpRequest()
+    myHttp.open('GET', 'https://forkify-api.herokuapp.com/api/v2/recipes?search=pasta')
+    myHttp.send()
+    myHttp.addEventListener('readystatechange', function () {
+        if (myHttp.readyState == 4) {
+            console.log('pasta');
+            allRecipes = JSON.parse(myHttp.response).data.recipes;
+            // console.log(allRecipes);
+            if(callback){
+                callback()
+            }
+        }
+    })
+}
+function allDone(){
+    console.log('done');
+}
+// getPizza() // async
+// getSalad() // async
+// getPasta() // async
+
+// first complete first display
+// Queue FCFS
+//  i need salad and pasta and pizza solution
+// callback function
+// pass function as argument to another function and call this function after end first function
+// function one(callback){
+//     console.log('one');
+//     callback()
+// }
+// one(two)
+// one(three)
+// function two(){
+//     console.log('two');
+// }
+// function three(){
+//     console.log('three');
+// }
+
+// salad pasta pizza
+
+getSalad(function(){
+    getPasta(getPizza)
 })
