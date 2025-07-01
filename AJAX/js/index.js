@@ -331,6 +331,9 @@ function allDone(){
 
 // salad pasta pizza
 
+// callback hells
 getSalad(function(){
-    getPasta(getPizza)
+    getPasta(function(){
+        getPizza(allDone)
+    })
 })
