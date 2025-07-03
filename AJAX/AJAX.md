@@ -224,4 +224,246 @@ function three(){
 ```
 - two & three callback function from one
 
+```js
+function getPizza(callback) {
+    let myHttp = new XMLHttpRequest()
+    myHttp.open('GET', 'https://forkify-api.herokuapp.com/api/v2/recipes?search=pizza')
+    myHttp.send()
+
+    myHttp.addEventListener('readystatechange', function () {
+        if (myHttp.readyState == 4) {
+            console.log('pizza');
+            allRecipes = JSON.parse(myHttp.response).data.recipes;
+            // console.log(allRecipes);
+            if(callback){
+                callback()
+            }
+        }
+    })
+}
+function getSalad(callback) {
+    let myHttp = new XMLHttpRequest()
+    myHttp.open('GET', 'https://forkify-api.herokuapp.com/api/v2/recipes?search=salad')
+    myHttp.send()
+    myHttp.addEventListener('readystatechange', function () {
+        if (myHttp.readyState == 4) {
+            console.log('salad');
+            allRecipes = JSON.parse(myHttp.response).data.recipes;
+            // console.log(allRecipes);
+            if(callback){
+                callback()
+            }
+        }
+    })
+}
+function getPasta(callback) {
+    let myHttp = new XMLHttpRequest()
+    myHttp.open('GET', 'https://forkify-api.herokuapp.com/api/v2/recipes?search=pasta')
+    myHttp.send()
+    myHttp.addEventListener('readystatechange', function () {
+        if (myHttp.readyState == 4) {
+            console.log('pasta');
+            allRecipes = JSON.parse(myHttp.response).data.recipes;
+            // console.log(allRecipes);
+            if(callback){
+                callback()
+            }
+        }
+    })
+}
+
+// getPizza() // async
+// getSalad() // async
+// getPasta() // async
+
+// first complete first display
+// Queue FCFS
+//  i need salad and pasta and pizza solution
+
+
+```
+> pass function as argument to another function and call this function after end first function
+```js
+// callback hells
+getSalad(function(){
+    getPasta(function(){
+        getPizza(allDone)
+    })
+})
+```
+- not readability
 ### promise
+- have then.()
+- if you need add more then must have return promise anonymous function
+- return promise 
+- callback argument put in function in promise
+```js
+function one(){
+    return new Promise(function(callback){
+        console.log('one');
+        callback()
+    })
+}
+function two(){
+    return new Promise (function(callback){
+        console.log('two');
+        callback()
+    })
+}
+function three(){
+    return new Promise(function(callback){
+        console.log('three');
+        callback()
+    })
+}
+function allDone(){
+    console.log('done');
+}
+one().then(two) 
+```
+- if you need call more than function 
+- must return promise because that make anonymous function
+- call promise function
+```js
+one()
+.then(function(){return two()})
+.then(function(){return three()})
+.then(allDone)
+```
+> if i need return two callback
+- then take callback if code not error 
+- catch take callback if code has error
+> Gar El3orf Ben el-developer in if code not contain error name resolved & if contain error name rejected
+
+```js
+function one(){
+    return new Promise(function(resolved , rejected){
+        // resolved  =two , rejected = printError
+        console.log('one');
+        let error = false;
+        if(!error){
+            resolved() // two
+        }else{
+            rejected() // printError
+        }
+    })
+}
+function two(){
+    return new Promise (function(callback){
+        console.log('two');
+        callback()
+    })
+}
+function three(){
+    return new Promise(function(callback){
+        console.log('three');
+        callback()
+    })
+}
+function allDone(){
+    console.log('done');
+}
+
+function printError(){
+    console.log(error);
+}
+one().then(two).catch(printError)
+```
+
+> recap promise
+- promise new concept in ES6 because solve problem name callback if have async function and i want run this function specific order
+- in promise every function return promise open then thoma then thoma then Replace the nested callbacks.
+- code more readability
+- also contain same then but catch to catch error resolve when code success and reject when code has error
+
+> case promise
+- pending 
+- Fulfilled go to then success code
+- rejected go to rejected 
+
+- promise.all after complete all function
+
+```js
+// this function not run until all function ended
+Promise.all([one , two , three]).then(function(){
+    console.log('all Done');
+})
+// when complete three function cl 'all Done'
+```
+- another way resolve
+```js
+function hello(){
+    console.log('hi');
+    return Promise.resolve('mr')
+}
+hello().then(function(x){
+    console.log(x);
+})
+// hi
+// mr
+```
+- take x parameter and pass in argument in resolve
+
+
+**Make Promise in real api**
+```js
+function getPizza() {
+    return new Promise(function (resolved, rejected) {
+        let myHttp = new XMLHttpRequest()
+        myHttp.open('GET', 'https://forkify-api.herokuapp.com/api/v2/recipes?search=pizza')
+        myHttp.send()
+
+        myHttp.addEventListener('readystatechange', function () {
+            if (myHttp.readyState == 4) {
+                console.log('pizza');
+                allRecipes = JSON.parse(myHttp.response).data.recipes;
+            }
+            resolved()
+        })
+        myHttp.addEventListener('error', function () {
+            rejected()
+        })
+    })
+}
+function getSalad() {
+    return new Promise(function (resolved, rejected) {
+        let myHttp = new XMLHttpRequest()
+        myHttp.open('GET', 'https://forkify-api.herokuapp.com/api/v2/recipes?search=salad')
+        myHttp.send()
+        myHttp.addEventListener('readystatechange', function () {
+            if (myHttp.readyState == 4) {
+                console.log('Salad');
+                allRecipes = JSON.parse(myHttp.response).data.recipes;
+            }
+            resolved()
+        })
+        myHttp.addEventListener('error', function () {
+            rejected()  
+        })
+    })
+}
+function getPasta() {
+    return new Promise(function (resolved, rejected) {
+        let myHttp = new XMLHttpRequest()
+        myHttp.open('GET', 'https://forkify-api.herokuapp.com/api/v2/recipes?search=pasta')
+        myHttp.send()
+        myHttp.addEventListener('readystatechange', function () {
+            if (myHttp.readyState == 4) {
+                console.log('pasta');
+                allRecipes = JSON.parse(myHttp.response).data.recipes;
+            }
+            resolved()
+        })
+        myHttp.addEventListener('error' , function(){
+            rejected()
+        })
+    })
+}
+getSalad()
+// i need return promise make anonymous func
+.then(function (){ return getPasta ()})
+.then(function(){return getPizza()})
+.catch(function(){ console.log('error'); })
+// finally already run in every time
+```
+### Fetch Api

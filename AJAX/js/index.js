@@ -217,7 +217,7 @@
 //     alert('Error in loading data from server')
 // })
 
-let allRecipes = []
+// let allRecipes = []
 
 // function getPizza(callback) {
 //     let myHttp = new XMLHttpRequest()
@@ -425,7 +425,7 @@ let allRecipes = []
 
 // promise.all after complete all function
 
-// / this function not run until all function ended
+// this function not run until all function ended
 // Promise.all([one , two , three]).then(function(){
 //     console.log('all Done');
 // })
@@ -438,67 +438,98 @@ let allRecipes = []
 //     console.log(x);
 // })
 
-function getPizza() {
-    return new Promise(function (resolved, rejected) {
-        let myHttp = new XMLHttpRequest()
-        myHttp.open('GET', 'https://forkify-api.herokuapp.com/api/v2/recipes?search=pizza')
-        myHttp.send()
+// function getPizza() {
+//     return new Promise(function (resolved, rejected) {
+//         let myHttp = new XMLHttpRequest()
+//         myHttp.open('GET', 'https://forkify-api.herokuapp.com/api/v2/recipes?search=pizza')
+//         myHttp.send()
 
-        myHttp.addEventListener('readystatechange', function () {
-            if (myHttp.readyState == 4) {
-                console.log('pizza');
-                allRecipes = JSON.parse(myHttp.response).data.recipes;
-            }
-            resolved()
-        })
-        myHttp.addEventListener('error', function () {
-            rejected()
-        })
-    })
-}
-// getPizza()
-//     .then(getPasta)
-//     .catch(function () {
-//         console.log('Error');
+//         myHttp.addEventListener('readystatechange', function () {
+//             if (myHttp.readyState == 4) {
+//                 console.log('pizza');
+//                 allRecipes = JSON.parse(myHttp.response).data.recipes;
+//             }
+//             resolved()
+//         })
+//         myHttp.addEventListener('error', function () {
+//             rejected()
+//         })
 //     })
-function getSalad() {
-    return new Promise(function (resolved, rejected) {
-        let myHttp = new XMLHttpRequest()
-        myHttp.open('GET', 'https://forkify-api.herokuapp.com/api/v2/recipes?search=salad')
-        myHttp.send()
-        myHttp.addEventListener('readystatechange', function () {
-            if (myHttp.readyState == 4) {
-                console.log('Salad');
-                allRecipes = JSON.parse(myHttp.response).data.recipes;
-            }
-            resolved()
-        })
-        myHttp.addEventListener('error', function () {
-            rejected()
-        })
-    })
-}
-function getPasta() {
-    return new Promise(function (resolved, rejected) {
-        let myHttp = new XMLHttpRequest()
-        myHttp.open('GET', 'https://forkify-api.herokuapp.com/api/v2/recipes?search=pasta')
-        myHttp.send()
-        myHttp.addEventListener('readystatechange', function () {
-            if (myHttp.readyState == 4) {
-                console.log('pasta');
-                allRecipes = JSON.parse(myHttp.response).data.recipes;
-            }
-            resolved()
-        })
-        myHttp.addEventListener('error' , function(){
-            rejected()
-        })
-    })
-}
-getSalad()
+// }
+
+// function getSalad() {
+//     return new Promise(function (resolved, rejected) {
+//         let myHttp = new XMLHttpRequest()
+//         myHttp.open('GET', 'https://forkify-api.herokuapp.com/api/v2/recipes?search=salad')
+//         myHttp.send()
+//         myHttp.addEventListener('readystatechange', function () {
+//             if (myHttp.readyState == 4) {
+//                 console.log('Salad');
+//                 allRecipes = JSON.parse(myHttp.response).data.recipes;
+//             }
+//             resolved()
+//         })
+//         myHttp.addEventListener('error', function () {
+//             rejected()  
+//         })
+//     })
+// }
+// function getPasta() {
+//     return new Promise(function (resolved, rejected) {
+//         let myHttp = new XMLHttpRequest()
+//         myHttp.open('GET', 'https://forkify-api.herokuapp.com/api/v2/recipes?search=pasta')
+//         myHttp.send()
+//         myHttp.addEventListener('readystatechange', function () {
+//             if (myHttp.readyState == 4) {
+//                 console.log('pasta');
+//                 allRecipes = JSON.parse(myHttp.response).data.recipes;
+//             }
+//             resolved()
+//         })
+//         myHttp.addEventListener('error' , function(){
+//             rejected()
+//         })
+//     })
+// }
+// getSalad()
 // i need return promise make anonymous func
-.then(function (){ return getPasta ()})
-.then(function(){return getPizza()})
-.catch(function(){
-    console.log('error');
-})
+// .then(function (){ return getPasta ()})
+// .then(function(){return getPizza()})
+// .catch(function(){ console.log('error'); })
+// finally already run in every time
+
+
+// function getSalad() {
+//     // fetch('https://forkify-api.herokuapp.com/api/v2/recipes?search=salad',{
+//     //     method : 'GET'
+//     // }) // by default method get
+//     fetch(`https://forkify-api.herokuapp.com/api/v2/recipes?search=salad`)
+//     .then(function(response){ return response.json() })
+//     .then(function (data) { console.log(data.data.recipes); })
+// }
+
+let allRecipes = []
+
+async function getSalad(recipe) {
+    let response = await fetch(`https://forkify-api.herokuapp.com/api/v2/recipes?search=${recipe}`)
+    let finalData = await response.json()
+    allRecipes = finalData.data.recipes
+    display()
+
+    // console.log(allRecipes);
+}
+getSalad('pizza')
+
+function display() {
+    let cont = ``
+    for (let i = 0; i < allRecipes.length; i++) {
+        cont += `
+        <div class="col-md-3 h-100 ">
+            <img src="${allRecipes[i].image_url}" height="200px" class="w-100" alt="">
+            <h2>${allRecipes[i].title}</h2>
+            <p>${allRecipes[i].publisher}</p>
+        </div>
+        `
+    }
+    document.querySelector('.row').innerHTML = cont
+}
