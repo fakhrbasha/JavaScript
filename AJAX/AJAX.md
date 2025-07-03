@@ -223,3 +223,5 @@ function three(){
 }
 ```
 - two & three callback function from one
+
+### promise
