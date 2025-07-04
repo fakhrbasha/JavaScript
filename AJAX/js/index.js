@@ -507,8 +507,10 @@
 //     .then(function(response){ return response.json() })
 //     .then(function (data) { console.log(data.data.recipes); })
 // }
-
+let RecipeFood = document.getElementById('RecipeFood')
 let allRecipes = []
+
+
 
 async function getSalad(recipe) {
     let response = await fetch(`https://forkify-api.herokuapp.com/api/v2/recipes?search=${recipe}`)
