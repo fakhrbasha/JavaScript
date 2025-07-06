@@ -513,12 +513,12 @@ let allRecipes = []
 
 
 async function getSalad(recipe) {
-    let response = await fetch(`https://forkify-api.herokuapp.com/api/v2/recipes?search=${recipe}`)
+    let response = await fetch(`https://forkify-api.herokuapp.com/api/v2/recipes?search=pizza`)
     let finalData = await response.json()
     allRecipes = finalData.data.recipes
-    display()
+    // display()
 
-    // console.log(allRecipes);
+    console.log(allRecipes);
 }
 getSalad('pizza')
 
